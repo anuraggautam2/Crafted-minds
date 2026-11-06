@@ -3,8 +3,8 @@
 import React, { useState } from "react";
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
-import { Services } from "@/components/services";
 import { Team } from "@/components/team";
+import { Services } from "@/components/services";
 import { WorkPreview } from "@/components/work-preview";
 import { Footer } from "@/components/footer";
 import { DemoModal } from "@/components/demo-modal";
@@ -38,14 +38,14 @@ export default function Home() {
         {/* Hero Section */}
         <Hero onOpenDemo={() => handleOpenDemo()} />
 
+        {/* Team Section (positioned immediately after the hero) */}
+        <Team />
+
         {/* Services Section */}
         <Services onSelectService={(service) => handleOpenDemo(service)} />
 
         {/* Our Work Section */}
         <WorkPreview onOpenDemo={() => handleOpenDemo()} />
-
-        {/* Team Section */}
-        <Team />
       </main>
 
       {/* Footer */}
