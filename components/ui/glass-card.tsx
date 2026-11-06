@@ -18,14 +18,14 @@ export function GlassCard({
 }: GlassCardProps) {
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] transition-all duration-300 ${
+      className={`relative overflow-hidden rounded-2xl bg-[#0c0c10]/75 backdrop-blur-2xl border border-white/[0.08] transition-all duration-300 ${
         hoverEffect
-          ? "hover:bg-white/[0.05] hover:border-white/[0.18] hover:shadow-[0_16px_40px_rgba(0,0,0,0.6)]"
+          ? "hover:bg-[#121217]/85 hover:border-white/[0.18] hover:-translate-y-1 hover:shadow-[0_16px_44px_rgba(0,0,0,0.6)]"
           : ""
       } ${className}`}
       {...props}
     >
-      {/* Specular highlight on top edge */}
+      {/* Soft specular reflection line on top edge */}
       {specular && (
         <div
           aria-hidden="true"
