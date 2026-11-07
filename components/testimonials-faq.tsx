@@ -65,15 +65,21 @@ export function TestimonialsFAQ({ onOpenDemo }: TestimonialsFAQProps) {
   ];
 
   return (
-    <section id="faq" className="relative py-24 md:py-32 overflow-hidden bg-[#000000]">
+    <section id="faq" className="relative py-28 md:py-36 overflow-hidden">
       {/* Top Specular Divider Beam & Ambient Light Reflection */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/80 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/85 to-transparent"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-4/5 h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.22)_0%,transparent_75%)] blur-2xl"
+        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-4/5 h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.25)_0%,transparent_75%)] blur-2xl"
+      />
+
+      {/* Studio Ambient Reflection Pool */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 w-[1000px] h-[650px] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.07)_0%,transparent_75%)] blur-3xl"
       />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,8 +94,8 @@ export function TestimonialsFAQ({ onOpenDemo }: TestimonialsFAQProps) {
           </h2>
         </div>
 
-        {/* 3 Testimonials in Glossy Charcoal Glass */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mb-24">
+        {/* 3 Testimonials in Glossy Obsidian Glass */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mb-28">
           {testimonials.map((t, index) => (
             <motion.div
               key={t.author}
@@ -101,13 +107,13 @@ export function TestimonialsFAQ({ onOpenDemo }: TestimonialsFAQProps) {
             >
               <GlassCard className="h-full p-6 sm:p-7 flex flex-col justify-between group">
                 <div>
-                  <Quote className="h-6 w-6 text-white/30 mb-4" />
-                  <p className="text-sm text-zinc-200 leading-relaxed font-normal italic">
+                  <Quote className="h-6 w-6 text-white/40 mb-4" />
+                  <p className="text-sm sm:text-base text-zinc-200 leading-relaxed font-normal italic">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/[0.12]">
+                <div className="mt-6 pt-4 border-t border-white/[0.14]">
                   <h4 className="text-sm font-bold text-white tracking-tight">
                     {t.author}
                   </h4>
@@ -134,15 +140,21 @@ export function TestimonialsFAQ({ onOpenDemo }: TestimonialsFAQProps) {
           </p>
         </div>
 
-        {/* FAQ Accordion in Glossy Charcoal Glass Container */}
-        <div className="space-y-3.5 max-w-4xl">
+        {/* FAQ Accordion in Glossy Obsidian Glass Container */}
+        <div className="space-y-4 max-w-4xl">
           {faqs.map((faq, index) => {
             const isOpen = activeFaq === index;
             return (
               <div
                 key={faq.question}
-                className="overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-[#24242a] via-[#1a1a20] to-[#141418] backdrop-blur-2xl transition-all duration-300 shadow-[0_12px_30px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.35)]"
+                className="overflow-hidden rounded-2xl border border-white/[0.22] bg-gradient-to-b from-[#262833]/92 via-[#181920]/94 to-[#0c0d11]/98 backdrop-blur-2xl transition-all duration-300 shadow-[0_16px_36px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.40)] hover:border-white/40"
               >
+                {/* Specular Top Line */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/80 to-transparent"
+                />
+
                 <button
                   onClick={() => setActiveFaq(isOpen ? null : index)}
                   className="w-full flex items-center justify-between p-5 sm:p-6 text-left transition-colors hover:bg-white/[0.04] cursor-pointer"
@@ -150,7 +162,7 @@ export function TestimonialsFAQ({ onOpenDemo }: TestimonialsFAQProps) {
                   <span className="text-base sm:text-lg font-bold text-white tracking-tight pr-4">
                     {faq.question}
                   </span>
-                  <div className={`p-1 rounded-full border border-white/20 bg-white/[0.08] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
+                  <div className={`p-1.5 rounded-full border border-white/25 bg-white/[0.08] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
                     <ChevronDown className="h-4 w-4 text-white" />
                   </div>
                 </button>
@@ -163,7 +175,7 @@ export function TestimonialsFAQ({ onOpenDemo }: TestimonialsFAQProps) {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-sm text-zinc-300 leading-relaxed font-normal border-t border-white/[0.10] pt-4">
+                      <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-sm sm:text-base text-zinc-200 leading-relaxed font-normal border-t border-white/[0.12] pt-4">
                         {faq.answer}
                       </div>
                     </motion.div>
@@ -175,8 +187,8 @@ export function TestimonialsFAQ({ onOpenDemo }: TestimonialsFAQProps) {
         </div>
 
         {/* Need more details banner */}
-        <div className="mt-12 text-center">
-          <p className="text-xs sm:text-sm text-zinc-400 font-normal">
+        <div className="mt-14 text-center">
+          <p className="text-xs sm:text-sm text-zinc-300 font-normal">
             Have a question not listed here?{" "}
             <button
               onClick={onOpenDemo}

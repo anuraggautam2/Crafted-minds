@@ -52,31 +52,38 @@ export function Services({ onSelectService }: ServicesProps) {
   ];
 
   return (
-    <section id="services" className="relative py-24 md:py-32 overflow-hidden bg-[#000000]">
+    <section id="services" className="relative py-28 md:py-36 overflow-hidden">
       {/* Top Specular Divider Beam & Ambient Light Reflection */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/80 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/85 to-transparent"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-4/5 h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.22)_0%,transparent_75%)] blur-2xl"
+        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-4/5 h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.25)_0%,transparent_75%)] blur-2xl"
       />
+
+      {/* Studio Ambient Reflection Pool */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/3 right-1/4 w-[850px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.07)_0%,transparent_70%)] blur-3xl"
+      />
+
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-2xl mb-14">
+        <div className="max-w-2xl mb-16">
           <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-300 font-semibold">
             Services
           </span>
           <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
             What We Build
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-zinc-200 font-normal leading-relaxed">
             Four focused capabilities designed to launch and support modern digital platforms.
           </p>
         </div>
 
-        {/* Services Grid (4 Cards with Consistent Heights & Glossy Charcoal Finish) */}
+        {/* Services Grid (4 Cards with Consistent Heights & Glossy Obsidian Finish) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -93,7 +100,7 @@ export function Services({ onSelectService }: ServicesProps) {
                   <div>
                     {/* Header: Small elegant icon & ID */}
                     <div className="flex items-center justify-between mb-4">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/20 bg-white/[0.08] text-white transition-colors group-hover:text-white group-hover:border-white/40 group-hover:bg-white/[0.14]">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/25 bg-white/[0.08] text-white transition-colors group-hover:text-white group-hover:border-white/45 group-hover:bg-white/[0.16]">
                         <Icon className="h-4 w-4" />
                       </div>
                       <span className="text-xs font-mono text-zinc-300 font-bold">
@@ -113,12 +120,12 @@ export function Services({ onSelectService }: ServicesProps) {
                   </div>
 
                   {/* Footer: Tags and Action Link */}
-                  <div className="mt-6 pt-4 border-t border-white/[0.12] flex items-center justify-between gap-3">
+                  <div className="mt-6 pt-4 border-t border-white/[0.14] flex items-center justify-between gap-3">
                     <div className="flex flex-wrap gap-1.5">
                       {service.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full border border-white/18 bg-white/[0.06] px-2.5 py-0.5 text-[10px] font-mono text-white font-medium"
+                          className="rounded-full border border-white/20 bg-white/[0.07] px-2.5 py-0.5 text-[10px] font-mono text-zinc-200 font-medium"
                         >
                           {tag}
                         </span>
@@ -127,7 +134,7 @@ export function Services({ onSelectService }: ServicesProps) {
 
                     <button
                       onClick={() => onSelectService(service.title)}
-                      className="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-[#24242a] px-3.5 py-1 text-xs font-semibold text-white hover:text-white hover:border-white/40 hover:bg-[#2c2c34] transition-all cursor-pointer"
+                      className="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-gradient-to-b from-[#242632] to-[#121318] px-4 py-1.5 text-xs font-semibold text-white hover:border-white/45 hover:from-[#2e303d] hover:to-[#181920] hover:shadow-[0_4px_16px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.3)] transition-all cursor-pointer"
                       aria-label={`Inquire about ${service.title}`}
                     >
                       <span>Inquire</span>

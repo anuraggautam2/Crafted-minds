@@ -56,7 +56,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
-          {/* Backdrop */}
+          {/* Backdrop with deep blur */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -65,33 +65,38 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
             className="absolute inset-0 bg-black/85 backdrop-blur-md"
           />
 
-          {/* Modal Container: Visible Charcoal Obsidian Glass */}
+          {/* Modal Container: Polished Obsidian Glass */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 12 }}
             transition={{ duration: 0.2 }}
-            className="relative w-full max-w-lg overflow-hidden rounded-2xl sm:rounded-3xl border border-white/20 bg-gradient-to-b from-[#24242a] via-[#1a1a20] to-[#141418] p-6 sm:p-8 backdrop-blur-2xl shadow-[0_30px_70px_rgba(0,0,0,0.95),inset_0_1px_1px_rgba(255,255,255,0.45)]"
+            className="relative w-full max-w-lg overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.22] bg-gradient-to-b from-[#262834]/95 via-[#181920]/96 to-[#0c0d12]/98 p-6 sm:p-8 backdrop-blur-3xl shadow-[0_35px_80px_rgba(0,0,0,0.98),inset_0_1px_1px_rgba(255,255,255,0.45),inset_0_-1px_1px_rgba(0,0,0,0.7)]"
           >
-            {/* Top specular reflection */}
+            {/* Top specular reflection line */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-x-8 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/85 to-transparent"
+              className="pointer-events-none absolute inset-x-8 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/90 to-transparent"
             />
             {/* Upper soft white reflection */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 w-[92%] h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.40)_0%,rgba(255,255,255,0.14)_45%,transparent_75%)] blur-2xl"
+              className="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 w-[94%] h-48 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.45)_0%,rgba(255,255,255,0.16)_45%,transparent_75%)] blur-2xl"
+            />
+            {/* Diagonal sheen */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-transparent opacity-80"
             />
             {/* Inner rim reflection ring */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/[0.14]"
+              className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/[0.16]"
             />
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute right-5 top-5 rounded-lg p-1.5 text-zinc-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+              className="absolute right-5 top-5 rounded-full p-2 text-zinc-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer border border-white/10"
               aria-label="Close dialog"
             >
               <X className="h-4 w-4" />
@@ -99,7 +104,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
 
             {isSubmitted ? (
               <div className="flex flex-col items-center justify-center py-8 text-center relative z-10">
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/[0.08] border border-white/20 text-white">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/[0.08] border border-white/25 text-white shadow-[0_0_25px_rgba(255,255,255,0.2)]">
                   <CheckCircle2 className="h-7 w-7 text-emerald-400" />
                 </div>
                 <h3 className="text-xl font-bold text-white tracking-tight">
@@ -112,7 +117,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                 <div className="mt-6">
                   <button
                     onClick={handleReset}
-                    className="rounded-full border border-white/20 bg-[#24242a] px-5 py-2 text-xs font-semibold text-white hover:bg-[#2c2c34] hover:border-white/40 transition cursor-pointer"
+                    className="rounded-full border border-white/25 bg-gradient-to-b from-[#242632] to-[#121318] px-6 py-2.5 text-xs font-semibold text-white hover:border-white/45 hover:from-[#2e303d] hover:to-[#181920] transition cursor-pointer"
                   >
                     Close
                   </button>
@@ -125,7 +130,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                     Contact Us
                   </span>
                   <h3 className="text-xl font-bold text-white tracking-tight mt-1">
-                    Book a Free Project Consultation
+                    Book a Technical Consultation
                   </h3>
                   <p className="text-xs text-zinc-300 mt-1">
                     Tell us about your requirements and we will follow up with technical recommendations.
@@ -143,7 +148,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="e.g. Alex Sharma"
-                      className="w-full rounded-xl border border-white/16 bg-[#18181e] px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/40 focus:ring-1 focus:ring-white/20"
+                      className="w-full rounded-xl border border-white/20 bg-[#121318]/90 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/45 focus:ring-1 focus:ring-white/20"
                     />
                   </div>
 
@@ -157,7 +162,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="alex@company.com"
-                      className="w-full rounded-xl border border-white/16 bg-[#18181e] px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/40 focus:ring-1 focus:ring-white/20"
+                      className="w-full rounded-xl border border-white/20 bg-[#121318]/90 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/45 focus:ring-1 focus:ring-white/20"
                     />
                   </div>
 
@@ -168,7 +173,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                     <select
                       value={service}
                       onChange={(e) => setService(e.target.value)}
-                      className="w-full rounded-xl border border-white/16 bg-[#18181e] px-3.5 py-2.5 text-sm text-white outline-none transition focus:border-white/40"
+                      className="w-full rounded-xl border border-white/20 bg-[#121318] px-3.5 py-2.5 text-sm text-white outline-none transition focus:border-white/45"
                     >
                       <option value="Website Development">Website Development</option>
                       <option value="UI/UX Design">UI/UX Design</option>
@@ -187,7 +192,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
                       placeholder="Briefly describe your goals, timeline, or requirements..."
-                      className="w-full rounded-xl border border-white/16 bg-[#18181e] px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/40 resize-none"
+                      className="w-full rounded-xl border border-white/20 bg-[#121318]/90 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/45 resize-none"
                     />
                   </div>
 
@@ -195,7 +200,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-xs sm:text-sm font-bold text-black transition-all hover:bg-zinc-100 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] active:scale-[0.98] cursor-pointer"
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-xs sm:text-sm font-bold text-black transition-all hover:bg-zinc-100 hover:shadow-[0_0_25px_rgba(255,255,255,0.45)] active:scale-[0.98] cursor-pointer shadow-[0_4px_16px_rgba(255,255,255,0.2)]"
                     >
                       {isSubmitting ? (
                         <span>Sending...</span>

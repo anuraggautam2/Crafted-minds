@@ -14,20 +14,26 @@ export function Footer({ onOpenDemo }: FooterProps) {
   const currentYear = 2026;
 
   return (
-    <footer id="contact" className="relative bg-[#000000] pt-24 pb-12 overflow-hidden">
+    <footer id="contact" className="relative pt-28 pb-14 overflow-hidden">
       {/* Top Specular Divider Beam & Ambient Light Reflection */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/80 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/85 to-transparent"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-4/5 h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.22)_0%,transparent_75%)] blur-2xl"
+        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-4/5 h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.25)_0%,transparent_75%)] blur-2xl"
+      />
+
+      {/* Upward Ambient Floor Reflection Arch */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[1200px] h-[450px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,0.14)_0%,rgba(180,195,215,0.03)_50%,transparent_80%)] blur-3xl opacity-85"
       />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* High-Impact Contact Banner in Glossy Charcoal Glass */}
-        <GlassCard className="p-8 sm:p-12 mb-16 hover:translate-y-0" hoverEffect={false}>
+        {/* High-Impact Contact Banner in Glossy Obsidian Glass */}
+        <GlassCard className="p-8 sm:p-12 mb-20 hover:translate-y-0" hoverEffect={false}>
           <div className="max-w-2xl">
             <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-300 font-semibold">
               Get In Touch
@@ -35,25 +41,25 @@ export function Footer({ onOpenDemo }: FooterProps) {
             <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
               Ready to Craft Your Next Digital Experience?
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-zinc-300 leading-relaxed font-normal">
+            <p className="mt-4 text-base sm:text-lg text-zinc-200 leading-relaxed font-normal">
               Whether you need a full platform build, a high-converting interface design, or continuous
               growth engineering, we are ready to discuss your architectural roadmap.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              {/* Solid White Pill CTA */}
+              {/* Solid White Pill CTA with Specular Glow */}
               <button
                 onClick={onOpenDemo}
-                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-xs sm:text-sm font-bold text-black transition-all hover:bg-zinc-100 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] cursor-pointer"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-xs sm:text-sm font-bold text-black transition-all hover:bg-zinc-100 hover:shadow-[0_0_30px_rgba(255,255,255,0.45)] cursor-pointer shadow-[0_4px_20px_rgba(255,255,255,0.25)]"
               >
                 <span>Book a Technical Consultation</span>
                 <ArrowRight className="h-4 w-4" />
               </button>
 
-              {/* Translucent Charcoal Glass Pill Link */}
+              {/* Polished Obsidian Glass Pill Link */}
               <a
                 href="mailto:inquiries@craftedminds.studio"
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#24242a] px-6 py-3 text-xs sm:text-sm font-semibold text-white hover:text-white hover:border-white/40 hover:bg-[#2c2c34] transition-all"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-gradient-to-b from-[#242630]/90 to-[#121318]/95 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white hover:text-white hover:border-white/45 hover:from-[#2e303d] hover:to-[#181920] hover:shadow-[0_10px_25px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.4)] transition-all shadow-[0_4px_16px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.25)]"
               >
                 <Mail className="h-4 w-4 text-zinc-300" />
                 <span>inquiries@craftedminds.studio</span>
@@ -63,11 +69,11 @@ export function Footer({ onOpenDemo }: FooterProps) {
         </GlassCard>
 
         {/* Footer Navigation Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-14 border-b border-white/[0.12]">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-16 border-b border-white/[0.14]">
           {/* Brand & Summary */}
           <div className="space-y-4 md:col-span-1">
             <Link href="#home" className="group inline-flex items-center gap-2.5 transition-opacity hover:opacity-95">
-              <div className="relative flex h-8 w-8 items-center justify-center rounded-lg border border-white/20 bg-white/[0.08] p-1 backdrop-blur-sm transition-colors group-hover:border-white/40">
+              <div className="relative flex h-8 w-8 items-center justify-center rounded-lg border border-white/25 bg-white/[0.08] p-1 backdrop-blur-sm transition-colors group-hover:border-white/45">
                 <Image
                   src="/brand/cm-monogram-white.svg"
                   alt="Crafted Minds Logo"
@@ -84,7 +90,7 @@ export function Footer({ onOpenDemo }: FooterProps) {
               Digital agency providing custom website development, UI/UX design,
               e-commerce solutions, and technical maintenance.
             </p>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/16 bg-white/[0.05] px-3 py-1 text-[10px] font-mono text-zinc-300">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-3.5 py-1 text-[10px] font-mono text-zinc-200">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <span>All Systems Operational</span>
             </div>
@@ -188,7 +194,7 @@ export function Footer({ onOpenDemo }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-400 font-mono">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-400 font-mono">
           <div>© {currentYear} CRAFTED MINDS. All rights reserved.</div>
           <div>Architected with Next.js, React & Tailwind CSS</div>
         </div>

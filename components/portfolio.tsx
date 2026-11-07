@@ -20,7 +20,6 @@ export function Portfolio({ onOpenDemo }: PortfolioProps) {
         "High-performance asset monitoring platform engineered with Next.js, real-time data feeds, and an obsidian design system.",
       metrics: "99.8 Lighthouse • < 0.6s FCP • 42% Conversion Lift",
       tags: ["Next.js", "TypeScript", "Tailwind CSS", "WebSockets"],
-      color: "from-blue-500/10",
     },
     {
       id: "02",
@@ -31,7 +30,6 @@ export function Portfolio({ onOpenDemo }: PortfolioProps) {
         "Luxury direct-to-consumer storefront featuring seamless catalog filtering, custom checkout flows, and 3D visualizers.",
       metrics: "3.2x Checkout Velocity • 100% Mobile Optimized • Zero CLS",
       tags: ["Next.js", "Shopify API", "Stripe", "Framer Motion"],
-      color: "from-zinc-400/10",
     },
     {
       id: "03",
@@ -42,20 +40,25 @@ export function Portfolio({ onOpenDemo }: PortfolioProps) {
         "Technical documentation engine and marketing suite built for developer tool adoption with zero-latency full-text search.",
       metrics: "10k+ Daily Readers • Instant Navigation • Full Dark Mode",
       tags: ["Next.js App Router", "MDX", "Tailwind", "Search"],
-      color: "from-emerald-500/10",
     },
   ];
 
   return (
-    <section id="work" className="relative py-24 md:py-32 overflow-hidden bg-[#000000]">
+    <section id="work" className="relative py-28 md:py-36 overflow-hidden">
       {/* Top Specular Divider Beam & Ambient Light Reflection */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/80 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/85 to-transparent"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-4/5 h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.22)_0%,transparent_75%)] blur-2xl"
+        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-4/5 h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.25)_0%,transparent_75%)] blur-2xl"
+      />
+
+      {/* Studio Ambient Reflection Pool */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/3 left-1/3 w-[950px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_0%,transparent_75%)] blur-3xl"
       />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,7 +70,7 @@ export function Portfolio({ onOpenDemo }: PortfolioProps) {
           <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Digital Platforms Built to Lead Their Markets.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-zinc-300 leading-relaxed font-normal">
+          <p className="mt-4 text-base sm:text-lg text-zinc-200 leading-relaxed font-normal">
             A cross-section of bespoke web applications, high-converting e-commerce storefronts, and modern
             digital interfaces built for discerning clients.
           </p>
@@ -90,10 +93,10 @@ export function Portfolio({ onOpenDemo }: PortfolioProps) {
                     <div>
                       {/* Category & ID */}
                       <div className="flex items-center gap-3 mb-3">
-                        <span className="text-xs font-mono font-bold text-white/50">
+                        <span className="text-xs font-mono font-bold text-white/60">
                           {proj.id}
                         </span>
-                        <span className="h-1 w-1 rounded-full bg-white/30" />
+                        <span className="h-1 w-1 rounded-full bg-white/40" />
                         <span className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-300">
                           {proj.category}
                         </span>
@@ -110,19 +113,19 @@ export function Portfolio({ onOpenDemo }: PortfolioProps) {
                       </p>
 
                       {/* Impact Metrics Pill */}
-                      <div className="mt-5 inline-flex items-center gap-2 rounded-xl border border-white/16 bg-white/[0.05] px-3.5 py-2 text-xs font-mono text-zinc-200">
+                      <div className="mt-5 inline-flex items-center gap-2 rounded-xl border border-white/20 bg-gradient-to-b from-[#242632] to-[#121318] px-4 py-2 text-xs font-mono text-zinc-200 shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
                         <TrendingUp className="h-4 w-4 text-emerald-400" />
                         <span>{proj.metrics}</span>
                       </div>
                     </div>
 
                     {/* Tech Stack Pills & Action Link */}
-                    <div className="mt-8 pt-5 border-t border-white/[0.12] flex flex-wrap items-center justify-between gap-4">
+                    <div className="mt-8 pt-5 border-t border-white/[0.14] flex flex-wrap items-center justify-between gap-4">
                       <div className="flex flex-wrap gap-1.5">
                         {proj.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="rounded-full border border-white/18 bg-white/[0.06] px-3 py-1 text-[10px] font-mono font-medium text-white"
+                            className="rounded-full border border-white/20 bg-white/[0.07] px-3 py-1 text-[10px] font-mono font-medium text-white"
                           >
                             {tag}
                           </span>
@@ -131,7 +134,7 @@ export function Portfolio({ onOpenDemo }: PortfolioProps) {
 
                       <button
                         onClick={onOpenDemo}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-zinc-300 transition-colors cursor-pointer group-hover:translate-x-1"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-zinc-200 transition-colors cursor-pointer group-hover:translate-x-1"
                       >
                         <span>Request Full Case Study</span>
                         <ArrowUpRight className="h-4 w-4" />
@@ -141,19 +144,24 @@ export function Portfolio({ onOpenDemo }: PortfolioProps) {
 
                   {/* Right Column: Glossy Digital Screen Mockup */}
                   <div className="lg:col-span-5">
-                    <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/20 bg-gradient-to-b from-[#2a2a32] via-[#1c1c22] to-[#121216] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.4)]">
+                    <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/25 bg-gradient-to-b from-[#2a2c38] via-[#1a1b22] to-[#0e0f14] p-4 shadow-[0_25px_50px_rgba(0,0,0,0.95),inset_0_1px_1px_rgba(255,255,255,0.45)]">
                       {/* Screen Specular Edge */}
                       <div
                         aria-hidden="true"
-                        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/80 to-transparent"
+                        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/85 to-transparent"
+                      />
+                      {/* Screen Top Reflection */}
+                      <div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-4/5 h-20 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.30)_0%,transparent_75%)] blur-md"
                       />
                       {/* Screen Header Bar */}
-                      <div className="flex items-center justify-between pb-3 border-b border-white/[0.12]">
+                      <div className="flex items-center justify-between pb-3 border-b border-white/[0.14]">
                         <div className="flex items-center gap-1.5">
-                          <div className="h-2 w-2 rounded-full bg-white/40" />
+                          <div className="h-2 w-2 rounded-full bg-white/50" />
                           <div className="h-2 w-2 rounded-full bg-white/20" />
                           <div className="h-2 w-2 rounded-full bg-white/20" />
-                          <span className="ml-2 text-[10px] font-mono text-zinc-300 font-medium">
+                          <span className="ml-2 text-[10px] font-mono text-zinc-200 font-medium">
                             {proj.url}
                           </span>
                         </div>
@@ -161,16 +169,16 @@ export function Portfolio({ onOpenDemo }: PortfolioProps) {
                       </div>
 
                       {/* Screen Body Simulation */}
-                      <div className="mt-4 p-4 rounded-lg bg-[#000000] border border-white/10 space-y-3">
+                      <div className="mt-4 p-4 rounded-lg bg-[#06070a] border border-white/12 space-y-3">
                         <div className="flex items-center justify-between">
-                          <div className="h-3 w-20 rounded bg-white/20" />
-                          <div className="h-3 w-12 rounded-full bg-emerald-400/30" />
+                          <div className="h-3 w-20 rounded bg-white/25" />
+                          <div className="h-3 w-12 rounded-full bg-emerald-400/35" />
                         </div>
-                        <div className="h-8 w-3/4 rounded bg-white/15" />
+                        <div className="h-8 w-3/4 rounded bg-white/20" />
                         <div className="grid grid-cols-3 gap-2 pt-2">
-                          <div className="h-12 rounded bg-white/10" />
-                          <div className="h-12 rounded bg-white/10" />
-                          <div className="h-12 rounded bg-white/10" />
+                          <div className="h-12 rounded bg-white/12" />
+                          <div className="h-12 rounded bg-white/12" />
+                          <div className="h-12 rounded bg-white/12" />
                         </div>
                       </div>
                     </div>
@@ -183,12 +191,12 @@ export function Portfolio({ onOpenDemo }: PortfolioProps) {
 
         {/* Inquire for Custom Work */}
         <div className="text-center pt-4">
-          <p className="text-sm text-zinc-400 font-normal mb-4">
+          <p className="text-sm text-zinc-300 font-normal mb-4">
             Need a similar bespoke platform engineered for your business?
           </p>
           <button
             onClick={onOpenDemo}
-            className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-xs sm:text-sm font-bold text-black transition-all hover:bg-zinc-100 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-xs sm:text-sm font-bold text-black transition-all hover:bg-zinc-100 hover:shadow-[0_0_30px_rgba(255,255,255,0.45)] cursor-pointer shadow-[0_4px_20px_rgba(255,255,255,0.25)]"
           >
             <Sparkles className="h-4 w-4" />
             <span>Discuss Custom Build</span>

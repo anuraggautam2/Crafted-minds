@@ -52,15 +52,21 @@ export function Process({ onOpenDemo }: ProcessProps) {
   ];
 
   return (
-    <section id="process" className="relative py-24 md:py-32 overflow-hidden bg-[#000000]">
+    <section id="process" className="relative py-28 md:py-36 overflow-hidden">
       {/* Top Specular Divider Beam & Ambient Light Reflection */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/80 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/85 to-transparent"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-4/5 h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.22)_0%,transparent_75%)] blur-2xl"
+        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-4/5 h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.25)_0%,transparent_75%)] blur-2xl"
+      />
+
+      {/* Studio Ambient Reflection Pool */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 w-[950px] h-[650px] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.07)_0%,transparent_75%)] blur-3xl"
       />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,14 +78,14 @@ export function Process({ onOpenDemo }: ProcessProps) {
           <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Built for Founders and Teams Who Value Flawless Execution.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-zinc-300 leading-relaxed font-normal">
+          <p className="mt-4 text-base sm:text-lg text-zinc-200 leading-relaxed font-normal">
             We operate with the agility of an internal specialized team, delivering robust digital platforms
             without corporate agency friction.
           </p>
         </div>
 
         {/* 3 Why Choose Us Advantages */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mb-24">
           {advantages.map((adv, index) => (
             <motion.div
               key={adv.title}
@@ -91,7 +97,7 @@ export function Process({ onOpenDemo }: ProcessProps) {
             >
               <GlassCard className="h-full p-6 sm:p-7 flex flex-col justify-between group">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/[0.08] px-3 py-1 text-[10px] font-mono font-semibold uppercase text-zinc-200 mb-4">
+                  <div className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-gradient-to-b from-[#242632] to-[#121318] px-3.5 py-1 text-[10px] font-mono font-semibold uppercase text-zinc-100 mb-4 shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
                     <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
                     <span>{adv.highlight}</span>
                   </div>
@@ -115,12 +121,12 @@ export function Process({ onOpenDemo }: ProcessProps) {
             <Workflow className="h-3.5 w-3.5 text-zinc-300" />
             <span>Our 4-Step Process</span>
           </span>
-          <h3 className="mt-2 text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+          <h3 className="mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
             From Initial Vision to High-Performance Launch.
           </h3>
         </div>
 
-        {/* 4 Process Step Cards in Glossy Charcoal Glass */}
+        {/* 4 Process Step Cards in Glossy Obsidian Glass */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-12">
           {steps.map((step, index) => (
             <motion.div
@@ -134,10 +140,10 @@ export function Process({ onOpenDemo }: ProcessProps) {
               <GlassCard className="h-full p-6 flex flex-col justify-between group">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-black font-mono text-white/40 group-hover:text-white transition-colors">
+                    <span className="text-3xl font-black font-mono text-white/50 group-hover:text-white transition-colors">
                       {step.step}
                     </span>
-                    <span className="h-2 w-2 rounded-full bg-white/20 group-hover:bg-white transition-colors" />
+                    <span className="h-2 w-2 rounded-full bg-white/30 group-hover:bg-white transition-colors" />
                   </div>
 
                   <h4 className="text-base font-bold text-white tracking-tight">
@@ -157,7 +163,7 @@ export function Process({ onOpenDemo }: ProcessProps) {
         <div className="text-center pt-6">
           <button
             onClick={onOpenDemo}
-            className="inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3 text-xs sm:text-sm font-bold text-black transition-all hover:bg-zinc-100 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] active:scale-[0.98] cursor-pointer"
+            className="inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-3.5 text-xs sm:text-sm font-bold text-black transition-all hover:bg-zinc-100 hover:shadow-[0_0_30px_rgba(255,255,255,0.45)] active:scale-[0.98] cursor-pointer shadow-[0_4px_20px_rgba(255,255,255,0.25)]"
           >
             <span>Start Your Project With Us</span>
             <ArrowRight className="h-4 w-4" />
