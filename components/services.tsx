@@ -52,17 +52,26 @@ export function Services({ onSelectService }: ServicesProps) {
   ];
 
   return (
-    <section id="services" className="relative py-20 md:py-28 overflow-hidden border-t border-white/[0.12] bg-[#000000]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="relative py-24 md:py-32 overflow-hidden bg-[#000000]">
+      {/* Top Specular Divider Beam & Ambient Light Reflection */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/80 to-transparent"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-4/5 h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.22)_0%,transparent_75%)] blur-2xl"
+      />
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-2xl mb-12">
+        <div className="max-w-2xl mb-14">
           <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-300 font-semibold">
             Services
           </span>
-          <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+          <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
             What We Build
           </h2>
-          <p className="mt-2 text-sm text-zinc-300 font-normal">
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
             Four focused capabilities designed to launch and support modern digital platforms.
           </p>
         </div>

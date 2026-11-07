@@ -21,6 +21,13 @@ interface SearchItem {
 
 const searchItems: SearchItem[] = [
   {
+    id: "nav-about",
+    title: "About the Collective",
+    category: "Navigation",
+    subtitle: "Senior software engineering collective & core principles",
+    target: "#about",
+  },
+  {
     id: "s-web",
     title: "Website Development",
     category: "Services",
@@ -29,7 +36,7 @@ const searchItems: SearchItem[] = [
   },
   {
     id: "s-ui",
-    title: "UI/UX Design",
+    title: "UI/UX Design Systems",
     category: "Services",
     subtitle: "Intuitive flows, design systems, and Figma wireframes",
     target: "#services",
@@ -43,45 +50,59 @@ const searchItems: SearchItem[] = [
   },
   {
     id: "s-maint",
-    title: "Website Maintenance",
+    title: "Website Maintenance & Care",
     category: "Services",
     subtitle: "Ongoing security, updates, and speed optimizations",
     target: "#services",
+  },
+  {
+    id: "nav-process",
+    title: "Why Choose Us & 4-Step Process",
+    category: "Navigation",
+    subtitle: "Our engineering advantages and milestone-based process",
+    target: "#process",
+  },
+  {
+    id: "nav-work",
+    title: "Selected Work & Case Studies",
+    category: "Navigation",
+    subtitle: "Apex Capital, Solace Audio, and Nexus Cloud showcases",
+    target: "#work",
   },
   {
     id: "t-anurag",
     title: "Anurag Gautam",
     category: "Team",
     subtitle: "Full-Stack Developer",
-    target: "#about",
+    target: "#team",
   },
   {
     id: "t-aditya-s",
     title: "Aditya Singh",
     category: "Team",
     subtitle: "Backend Developer",
-    target: "#about",
+    target: "#team",
   },
   {
     id: "t-aditya-k",
     title: "Aditya Kushwaha",
     category: "Team",
     subtitle: "UI/UX Designer",
-    target: "#about",
+    target: "#team",
   },
   {
     id: "t-karunakar",
     title: "Karunakar Mishra",
     category: "Team",
     subtitle: "Frontend Developer",
-    target: "#about",
+    target: "#team",
   },
   {
-    id: "nav-work",
-    title: "Selected Work & Case Studies",
+    id: "nav-faq",
+    title: "FAQ & Pricing Questions",
     category: "Navigation",
-    subtitle: "Explore agency projects and development portfolio",
-    target: "#work",
+    subtitle: "Timelines, fixed-price models, and full code ownership",
+    target: "#faq",
   },
   {
     id: "nav-contact",
@@ -92,9 +113,9 @@ const searchItems: SearchItem[] = [
   },
   {
     id: "act-demo",
-    title: "Book a Free Project Demo",
+    title: "Book a Technical Consultation",
     category: "Action",
-    subtitle: "Schedule a direct consultation with the engineering team",
+    subtitle: "Schedule a direct consultation with our engineering core",
     target: "demo",
     isAction: true,
   },
@@ -146,14 +167,16 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
   }, [searchOpen]);
 
   const navLinks = [
+    { label: "About", href: "#about" },
     { label: "Services", href: "#services" },
-    { label: "Team", href: "#about" },
+    { label: "Process", href: "#process" },
     { label: "Work", href: "#work" },
-    { label: "Contact", href: "#contact" },
+    { label: "Team", href: "#team" },
+    { label: "FAQ", href: "#faq" },
   ];
 
   const filteredSearchItems = searchQuery.trim() === ""
-    ? searchItems.slice(0, 6)
+    ? searchItems.slice(0, 7)
     : searchItems.filter(
         (item) =>
           item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -237,7 +260,7 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
             </Link>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center gap-1 relative z-10">
+            <div className="hidden lg:flex items-center gap-1 relative z-10">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
@@ -274,7 +297,7 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
             </div>
 
             {/* Mobile Controls */}
-            <div className="flex md:hidden items-center gap-1.5 relative z-10">
+            <div className="flex lg:hidden items-center gap-1.5 relative z-10">
               {/* Mobile Search Button */}
               <button
                 onClick={() => setSearchOpen(true)}
@@ -316,7 +339,7 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden mt-2 max-w-6xl mx-auto"
+              className="lg:hidden mt-2 max-w-6xl mx-auto"
             >
               <div className="relative overflow-hidden rounded-2xl border border-white/20 bg-[#1e1e24] p-4 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.3)] flex flex-col gap-2">
                 {/* Specular top reflection */}
@@ -394,7 +417,7 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search services, team, case studies..."
+                  placeholder="Search services, team, process, case studies..."
                   className="w-full rounded-xl border border-white/18 bg-white/[0.06] py-3 pl-10 pr-10 text-sm text-white placeholder-zinc-400 outline-none transition-all focus:border-white/40 focus:bg-white/[0.10] focus:ring-1 focus:ring-white/30"
                 />
                 {searchQuery ? (
@@ -416,12 +439,12 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
                 <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 mr-1 font-semibold">
                   Jump to:
                 </span>
-                {["Services", "Team", "Work", "Contact"].map((chip) => (
+                {["About", "Services", "Process", "Work", "Team", "FAQ", "Contact"].map((chip) => (
                   <button
                     key={chip}
                     onClick={() => {
                       setSearchOpen(false);
-                      const el = document.querySelector(`#${chip.toLowerCase() === "work" ? "work" : chip.toLowerCase() === "team" ? "about" : chip.toLowerCase()}`);
+                      const el = document.querySelector(`#${chip.toLowerCase()}`);
                       el?.scrollIntoView({ behavior: "smooth" });
                     }}
                     className="rounded-md border border-white/14 bg-white/[0.05] px-2.5 py-0.5 text-[11px] font-medium text-zinc-200 hover:border-white/30 hover:bg-white/[0.12] hover:text-white transition-all cursor-pointer"

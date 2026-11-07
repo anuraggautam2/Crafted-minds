@@ -3,9 +3,12 @@
 import React, { useState } from "react";
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
-import { Team } from "@/components/team";
+import { About } from "@/components/about";
 import { Services } from "@/components/services";
-import { WorkPreview } from "@/components/work-preview";
+import { Process } from "@/components/process";
+import { Portfolio } from "@/components/portfolio";
+import { Team } from "@/components/team";
+import { TestimonialsFAQ } from "@/components/testimonials-faq";
 import { Footer } from "@/components/footer";
 import { DemoModal } from "@/components/demo-modal";
 
@@ -24,33 +27,42 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-[#000000] text-white selection:bg-white/30 selection:text-white antialiased">
-      {/* Pure Black Canvas with optional micro grid - NO grey page-wide gradients */}
+      {/* Pure Obsidian Black Canvas with Micro Grid */}
       <div aria-hidden="true" className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute inset-0 bg-grid-subtle opacity-15" />
       </div>
 
-      {/* Floating Header / Navbar */}
+      {/* Floating Glossy Obsidian Header / Navbar */}
       <Navbar onOpenDemo={() => handleOpenDemo()} />
 
-      {/* Main Page Flow */}
+      {/* Complete Site-Wide Main Page Flow */}
       <main className="relative z-10 flex flex-col">
-        {/* Hero Section */}
+        {/* 1. Hero: Full-Width Dramatic Black Glossy Environment */}
         <Hero onOpenDemo={() => handleOpenDemo()} />
 
-        {/* Team Section (positioned immediately below Hero) */}
-        <Team />
+        {/* 2. About: Senior Software Collective & Core Engineering Pillars */}
+        <About onOpenDemo={() => handleOpenDemo()} />
 
-        {/* Services Section */}
+        {/* 3. Services: 4 Core Capabilities in Matching Glossy Environment */}
         <Services onSelectService={(service) => handleOpenDemo(service)} />
 
-        {/* Our Work Section */}
-        <WorkPreview onOpenDemo={() => handleOpenDemo()} />
+        {/* 4. Why Choose Us & Process: Comparative Advantages & 4-Step Engineering Workflow */}
+        <Process onOpenDemo={() => handleOpenDemo()} />
+
+        {/* 5. Portfolio: Premium Dark Reflective Project Presentation */}
+        <Portfolio onOpenDemo={() => handleOpenDemo()} />
+
+        {/* 6. Team: Original Photos Preserved, Calibrated Crops, Glossy Dark Layouts */}
+        <Team />
+
+        {/* 7. Testimonials & FAQ: Client Endorsements & Interactive Accordion */}
+        <TestimonialsFAQ onOpenDemo={() => handleOpenDemo()} />
       </main>
 
-      {/* Footer */}
+      {/* 8. Footer & Contact: Complete Glossy Black Finish */}
       <Footer onOpenDemo={() => handleOpenDemo()} />
 
-      {/* Interactive Free Demo Booking Glass Dialog */}
+      {/* Interactive Free Demo / Consultation Booking Glass Dialog */}
       <DemoModal
         key={`${selectedService || "default"}-${demoModalOpen}`}
         isOpen={demoModalOpen}
