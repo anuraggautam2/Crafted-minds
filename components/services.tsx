@@ -52,22 +52,22 @@ export function Services({ onSelectService }: ServicesProps) {
   ];
 
   return (
-    <section id="services" className="relative py-20 md:py-28 overflow-hidden border-t border-white/[0.08]">
+    <section id="services" className="relative py-20 md:py-28 overflow-hidden border-t border-white/[0.12] bg-[#000000]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
-          <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400">
+          <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-300 font-semibold">
             Services
           </span>
-          <h2 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-white">
+          <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
             What We Build
           </h2>
-          <p className="mt-2 text-sm text-zinc-400">
+          <p className="mt-2 text-sm text-zinc-300 font-normal">
             Four focused capabilities designed to launch and support modern digital platforms.
           </p>
         </div>
 
-        {/* Services Grid (4 Cards with Consistent Heights & Glossy Obsidian Finish) */}
+        {/* Services Grid (4 Cards with Consistent Heights & Glossy Charcoal Finish) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -84,32 +84,32 @@ export function Services({ onSelectService }: ServicesProps) {
                   <div>
                     {/* Header: Small elegant icon & ID */}
                     <div className="flex items-center justify-between mb-4">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/12 bg-white/[0.04] text-zinc-300 transition-colors group-hover:text-white group-hover:border-white/25 group-hover:bg-white/[0.08]">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/20 bg-white/[0.08] text-white transition-colors group-hover:text-white group-hover:border-white/40 group-hover:bg-white/[0.14]">
                         <Icon className="h-4 w-4" />
                       </div>
-                      <span className="text-xs font-mono text-zinc-500 font-medium">
+                      <span className="text-xs font-mono text-zinc-300 font-bold">
                         {service.id}
                       </span>
                     </div>
 
                     {/* Title: Short & Impactful */}
-                    <h3 className="text-lg font-semibold text-white tracking-tight">
+                    <h3 className="text-lg font-bold text-white tracking-tight">
                       {service.title}
                     </h3>
 
                     {/* Description: Exactly one concise sentence */}
-                    <p className="mt-2 text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                    <p className="mt-2 text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
                       {service.description}
                     </p>
                   </div>
 
                   {/* Footer: Tags and Action Link */}
-                  <div className="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between gap-3">
+                  <div className="mt-6 pt-4 border-t border-white/[0.12] flex items-center justify-between gap-3">
                     <div className="flex flex-wrap gap-1.5">
                       {service.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full border border-white/[0.08] bg-white/[0.025] px-2.5 py-0.5 text-[10px] font-mono text-zinc-400"
+                          className="rounded-full border border-white/18 bg-white/[0.06] px-2.5 py-0.5 text-[10px] font-mono text-white font-medium"
                         >
                           {tag}
                         </span>
@@ -118,7 +118,7 @@ export function Services({ onSelectService }: ServicesProps) {
 
                     <button
                       onClick={() => onSelectService(service.title)}
-                      className="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/[0.04] px-3.5 py-1 text-xs font-medium text-zinc-300 hover:text-white hover:border-white/30 hover:bg-white/[0.08] transition-all cursor-pointer"
+                      className="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-[#24242a] px-3.5 py-1 text-xs font-semibold text-white hover:text-white hover:border-white/40 hover:bg-[#2c2c34] transition-all cursor-pointer"
                       aria-label={`Inquire about ${service.title}`}
                     >
                       <span>Inquire</span>

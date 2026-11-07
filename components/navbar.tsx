@@ -176,11 +176,11 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
   const getCategoryIcon = (category: SearchItem["category"]) => {
     switch (category) {
       case "Services":
-        return <Layers className="h-3.5 w-3.5 text-zinc-400" />;
+        return <Layers className="h-3.5 w-3.5 text-zinc-300" />;
       case "Team":
-        return <Users className="h-3.5 w-3.5 text-zinc-400" />;
+        return <Users className="h-3.5 w-3.5 text-zinc-300" />;
       case "Navigation":
-        return <FolderGit2 className="h-3.5 w-3.5 text-zinc-400" />;
+        return <FolderGit2 className="h-3.5 w-3.5 text-zinc-300" />;
       case "Action":
         return <Sparkles className="h-3.5 w-3.5 text-white" />;
     }
@@ -190,30 +190,30 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
     <>
       <header className="fixed top-0 left-0 right-0 z-40 px-4 sm:px-6 lg:px-8 pt-4 transition-all duration-300">
         <div className="max-w-6xl mx-auto">
-          {/* Floating Pill-Shaped Translucent Glossy Glass Navbar */}
+          {/* Floating Pill-Shaped Charcoal Glossy Glass Navbar */}
           <nav
-            className={`relative flex items-center justify-between rounded-full px-4 sm:px-6 py-2.5 sm:py-3 transition-all duration-300 ${
+            className={`relative flex items-center justify-between rounded-full px-4 sm:px-6 py-2.5 sm:py-3 transition-all duration-300 border border-white/20 ${
               scrolled
-                ? "bg-black/80 border-white/[0.16] shadow-[0_20px_50px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(255,255,255,0.22)]"
-                : "bg-black/60 border-white/[0.12] shadow-[0_12px_35px_rgba(0,0,0,0.65),inset_0_1px_1px_rgba(255,255,255,0.18)]"
-            } backdrop-blur-3xl border overflow-hidden`}
+                ? "bg-gradient-to-b from-[#24242a]/95 via-[#1a1a20]/95 to-[#141418]/95 shadow-[0_20px_50px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.4)]"
+                : "bg-gradient-to-b from-[#222228]/90 via-[#18181d]/90 to-[#121215]/95 shadow-[0_14px_38px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.32)]"
+            } backdrop-blur-2xl overflow-hidden`}
           >
-            {/* Specular top reflection line */}
+            {/* Specular top reflection line (Razor 1.5px Silver Edge) */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent"
+              className="pointer-events-none absolute inset-x-8 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/80 to-transparent"
             />
 
-            {/* Subtle upper blurred reflection for glossy finish */}
+            {/* Strong, wide, soft white reflection across upper navbar */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.16)_0%,transparent_70%)] blur-xl"
+              className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-4/5 h-24 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.30)_0%,transparent_75%)] blur-lg"
             />
 
             {/* Inner rim refraction ring */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-white/[0.06]"
+              className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-white/[0.12]"
             />
 
             {/* Wordmark & Brand Logo */}
@@ -221,7 +221,7 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
               href="#home"
               className="group relative z-10 flex items-center gap-2.5 transition-opacity hover:opacity-95"
             >
-              <div className="relative flex h-8 w-8 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] p-1 backdrop-blur-sm transition-colors group-hover:border-white/30">
+              <div className="relative flex h-8 w-8 items-center justify-center rounded-lg border border-white/20 bg-white/[0.08] p-1 backdrop-blur-sm transition-colors group-hover:border-white/40">
                 <Image
                   src="/brand/cm-monogram-white.svg"
                   alt="Crafted Minds CM Monogram"
@@ -231,7 +231,7 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
                   priority
                 />
               </div>
-              <span className="text-xs font-bold tracking-[0.2em] text-white uppercase font-sans">
+              <span className="text-xs font-extrabold tracking-[0.2em] text-white uppercase font-sans">
                 CRAFTED MINDS
               </span>
             </Link>
@@ -242,7 +242,7 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="px-3.5 py-1.5 text-xs font-medium tracking-wide text-zinc-300 transition-colors hover:text-white rounded-full hover:bg-white/[0.06]"
+                  className="px-3.5 py-1.5 text-xs font-semibold tracking-wide text-zinc-200 transition-colors hover:text-white rounded-full hover:bg-white/[0.10]"
                 >
                   {link.label}
                 </a>
@@ -254,20 +254,20 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
               {/* Dedicated Search Button */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3.5 py-1.5 text-xs text-zinc-300 hover:text-white hover:border-white/25 hover:bg-white/[0.08] transition-all cursor-pointer shadow-sm"
+                className="group flex items-center gap-2 rounded-full border border-white/18 bg-white/[0.06] px-3.5 py-1.5 text-xs text-white hover:text-white hover:border-white/35 hover:bg-white/[0.12] transition-all cursor-pointer shadow-sm"
                 aria-label="Search CRAFTED MINDS"
               >
-                <Search className="h-3.5 w-3.5 text-zinc-400 transition-colors group-hover:text-white" />
-                <span className="text-[11px] text-zinc-400 group-hover:text-zinc-200">Search</span>
-                <kbd className="hidden lg:inline-flex items-center rounded border border-white/10 bg-white/[0.04] px-1.5 py-0.5 text-[9px] font-mono text-zinc-400">
+                <Search className="h-3.5 w-3.5 text-zinc-300 transition-colors group-hover:text-white" />
+                <span className="text-[11px] font-medium text-zinc-300 group-hover:text-white">Search</span>
+                <kbd className="hidden lg:inline-flex items-center rounded border border-white/18 bg-white/[0.06] px-1.5 py-0.5 text-[9px] font-mono text-zinc-300 font-semibold">
                   ⌘K
                 </kbd>
               </button>
 
-              {/* Premium Black-and-White Pill CTA */}
+              {/* High-Contrast Pure White Pill Button */}
               <button
                 onClick={onOpenDemo}
-                className="rounded-full bg-white px-5 py-1.5 text-xs font-semibold text-black transition-all hover:bg-zinc-100 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] active:scale-[0.98] cursor-pointer"
+                className="rounded-full bg-white px-5 py-1.5 text-xs font-bold text-black transition-all hover:bg-zinc-100 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] active:scale-[0.98] cursor-pointer"
               >
                 Get in Touch
               </button>
@@ -278,7 +278,7 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
               {/* Mobile Search Button */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="rounded-full p-2 text-zinc-300 hover:text-white bg-white/[0.04] border border-white/10 hover:border-white/20 transition-all"
+                className="rounded-full p-2 text-white bg-white/[0.08] border border-white/18 hover:border-white/35 transition-all"
                 aria-label="Search"
               >
                 <Search className="h-3.5 w-3.5" />
@@ -287,7 +287,7 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
               {/* Mobile Contact Quick Button */}
               <button
                 onClick={onOpenDemo}
-                className="rounded-full bg-white px-3.5 py-1 text-[11px] font-semibold text-black hover:bg-zinc-200"
+                className="rounded-full bg-white px-3.5 py-1 text-[11px] font-bold text-black hover:bg-zinc-100"
               >
                 Inquire
               </button>
@@ -295,7 +295,7 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
               {/* Hamburger Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="rounded-full p-2 text-zinc-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                className="rounded-full p-2 text-white hover:bg-white/[0.10] transition-colors"
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               >
                 {mobileMenuOpen ? (
@@ -318,11 +318,11 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
               transition={{ duration: 0.2 }}
               className="md:hidden mt-2 max-w-6xl mx-auto"
             >
-              <div className="relative overflow-hidden rounded-2xl border border-white/12 bg-black/90 p-4 backdrop-blur-3xl shadow-[0_20px_50px_rgba(0,0,0,0.9)] flex flex-col gap-2">
+              <div className="relative overflow-hidden rounded-2xl border border-white/20 bg-[#1e1e24] p-4 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.3)] flex flex-col gap-2">
                 {/* Specular top reflection */}
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-x-4 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  className="pointer-events-none absolute inset-x-4 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/80 to-transparent"
                 />
 
                 {navLinks.map((link) => (
@@ -330,19 +330,19 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
                     key={link.label}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="rounded-xl px-3 py-2 text-xs font-medium text-zinc-300 hover:bg-white/[0.06] hover:text-white transition-colors"
+                    className="rounded-xl px-3 py-2 text-xs font-semibold text-zinc-200 hover:bg-white/[0.10] hover:text-white transition-colors"
                   >
                     {link.label}
                   </a>
                 ))}
 
-                <div className="pt-2 border-t border-white/10">
+                <div className="pt-2 border-t border-white/12">
                   <button
                     onClick={() => {
                       setMobileMenuOpen(false);
                       onOpenDemo();
                     }}
-                    className="w-full rounded-xl bg-white py-2.5 text-xs font-semibold text-black transition hover:bg-zinc-200"
+                    className="w-full rounded-xl bg-white py-2.5 text-xs font-bold text-black transition hover:bg-zinc-100"
                   >
                     Get in Touch
                   </button>
@@ -363,49 +363,49 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={handleCloseSearch}
-              className="fixed inset-0 bg-black/80 backdrop-blur-md"
+              className="fixed inset-0 bg-black/85 backdrop-blur-md"
             />
 
-            {/* Glossy Obsidian Search Modal Card */}
+            {/* Glossy Charcoal Glass Search Modal Card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.96, y: -10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: -10 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative z-10 w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-white/14 bg-gradient-to-b from-[#14151c]/95 via-[#0e0f14]/96 to-[#050508]/98 p-4 sm:p-5 backdrop-blur-3xl shadow-[0_30px_70px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.22)]"
+              className="relative z-10 w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-white/20 bg-gradient-to-b from-[#24242a] via-[#1a1a20] to-[#141418] p-4 sm:p-5 backdrop-blur-2xl shadow-[0_30px_70px_rgba(0,0,0,0.95),inset_0_1px_1px_rgba(255,255,255,0.4)]"
             >
               {/* Specular top highlight */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/45 to-transparent"
+                className="pointer-events-none absolute inset-x-8 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/85 to-transparent"
               />
 
               {/* Upper soft white reflection */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 w-4/5 h-28 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.18)_0%,transparent_75%)] blur-xl"
+                className="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 w-4/5 h-28 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.35)_0%,transparent_75%)] blur-xl"
               />
 
               {/* Search Input Bar */}
               <div className="relative flex items-center">
-                <Search className="pointer-events-none absolute left-3.5 h-4 w-4 text-zinc-400" />
+                <Search className="pointer-events-none absolute left-3.5 h-4 w-4 text-zinc-300" />
                 <input
                   ref={searchInputRef}
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search services, team, case studies..."
-                  className="w-full rounded-xl border border-white/10 bg-white/[0.04] py-3 pl-10 pr-10 text-sm text-white placeholder-zinc-500 outline-none transition-all focus:border-white/30 focus:bg-white/[0.07] focus:ring-1 focus:ring-white/20"
+                  className="w-full rounded-xl border border-white/18 bg-white/[0.06] py-3 pl-10 pr-10 text-sm text-white placeholder-zinc-400 outline-none transition-all focus:border-white/40 focus:bg-white/[0.10] focus:ring-1 focus:ring-white/30"
                 />
                 {searchQuery ? (
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="absolute right-3 rounded-md p-1 text-zinc-400 hover:text-white"
+                    className="absolute right-3 rounded-md p-1 text-zinc-300 hover:text-white"
                   >
                     <X className="h-3.5 w-3.5" />
                   </button>
                 ) : (
-                  <kbd className="pointer-events-none absolute right-3 rounded border border-white/10 bg-white/[0.04] px-1.5 py-0.5 text-[10px] font-mono text-zinc-500">
+                  <kbd className="pointer-events-none absolute right-3 rounded border border-white/18 bg-white/[0.06] px-1.5 py-0.5 text-[10px] font-mono text-zinc-300">
                     ESC
                   </kbd>
                 )}
@@ -413,7 +413,7 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
 
               {/* Quick Navigation Chips */}
               <div className="mt-3 flex flex-wrap items-center gap-1.5 pb-2">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 mr-1">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 mr-1 font-semibold">
                   Jump to:
                 </span>
                 {["Services", "Team", "Work", "Contact"].map((chip) => (
@@ -424,7 +424,7 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
                       const el = document.querySelector(`#${chip.toLowerCase() === "work" ? "work" : chip.toLowerCase() === "team" ? "about" : chip.toLowerCase()}`);
                       el?.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="rounded-md border border-white/[0.08] bg-white/[0.025] px-2 py-0.5 text-[11px] text-zinc-300 hover:border-white/20 hover:bg-white/[0.06] hover:text-white transition-all cursor-pointer"
+                    className="rounded-md border border-white/14 bg-white/[0.05] px-2.5 py-0.5 text-[11px] font-medium text-zinc-200 hover:border-white/30 hover:bg-white/[0.12] hover:text-white transition-all cursor-pointer"
                   >
                     {chip}
                   </button>
@@ -432,50 +432,50 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
               </div>
 
               {/* Search Results List */}
-              <div className="mt-2 max-h-[320px] overflow-y-auto space-y-1 pt-1 border-t border-white/[0.06]">
+              <div className="mt-2 max-h-[320px] overflow-y-auto space-y-1 pt-1 border-t border-white/[0.10]">
                 {filteredSearchItems.length > 0 ? (
                   filteredSearchItems.map((item) => (
                     <button
                       key={item.id}
                       onClick={() => handleSelectSearchItem(item)}
-                      className="group flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left transition-colors hover:bg-white/[0.06] cursor-pointer"
+                      className="group flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left transition-colors hover:bg-white/[0.10] cursor-pointer"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] transition-colors group-hover:border-white/20 group-hover:bg-white/[0.07]">
+                        <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/16 bg-white/[0.06] transition-colors group-hover:border-white/30 group-hover:bg-white/[0.12]">
                           {getCategoryIcon(item.category)}
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="text-xs font-semibold text-white tracking-tight">
+                            <span className="text-xs font-bold text-white tracking-tight">
                               {item.title}
                             </span>
-                            <span className="rounded border border-white/10 bg-white/[0.03] px-1.5 py-0.2 text-[9px] font-mono text-zinc-400">
+                            <span className="rounded border border-white/14 bg-white/[0.06] px-1.5 py-0.2 text-[9px] font-mono text-zinc-300 font-semibold">
                               {item.category}
                             </span>
                           </div>
-                          <p className="text-[11px] text-zinc-400 mt-0.5">
+                          <p className="text-[11px] text-zinc-300 mt-0.5">
                             {item.subtitle}
                           </p>
                         </div>
                       </div>
 
-                      <div className="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 text-[11px] text-zinc-300">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 text-[11px] text-zinc-200 font-medium">
                         <span>Go</span>
                         <CornerDownLeft className="h-3 w-3" />
                       </div>
                     </button>
                   ))
                 ) : (
-                  <div className="py-8 text-center text-xs text-zinc-500">
+                  <div className="py-8 text-center text-xs text-zinc-400">
                     No results found for &ldquo;{searchQuery}&rdquo;. Try searching for &ldquo;Next.js&rdquo;, &ldquo;UI/UX&rdquo;, or &ldquo;Team&rdquo;.
                   </div>
                 )}
               </div>
 
               {/* Modal Footer */}
-              <div className="mt-3 pt-2.5 border-t border-white/[0.06] flex items-center justify-between text-[10px] font-mono text-zinc-500">
+              <div className="mt-3 pt-2.5 border-t border-white/[0.10] flex items-center justify-between text-[10px] font-mono text-zinc-400">
                 <span>PRESS ESC TO CLOSE</span>
-                <span>CRAFTED MINDS DIGITAL</span>
+                <span className="font-semibold text-zinc-300">CRAFTED MINDS DIGITAL</span>
               </div>
             </motion.div>
           </div>

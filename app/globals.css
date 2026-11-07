@@ -23,7 +23,7 @@ body {
   color: #ffffff;
   font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   overflow-x: hidden;
-  selection-background-color: rgba(255, 255, 255, 0.25);
+  selection-background-color: rgba(255, 255, 255, 0.3);
   selection-color: #ffffff;
 }
 
@@ -35,36 +35,36 @@ body {
   background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 9999px;
   border: 2px solid #000000;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.35);
 }
 
-/* Glossy Obsidian Glass Utility Helpers */
+/* Glossy Charcoal Obsidian Glass Utility Helpers */
 .glossy-panel {
-  background: linear-gradient(180deg, rgba(20, 21, 27, 0.85) 0%, rgba(11, 12, 16, 0.90) 50%, rgba(4, 4, 7, 0.96) 100%);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), inset 0 1px 1px rgba(255, 255, 255, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.02);
+  background: linear-gradient(180deg, #24242a 0%, #1a1a20 50%, #141418 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.38), inset 0 -1px 1px rgba(0, 0, 0, 0.6);
 }
 
 .glossy-panel-interactive {
-  background: linear-gradient(180deg, rgba(20, 21, 27, 0.85) 0%, rgba(11, 12, 16, 0.90) 50%, rgba(4, 4, 7, 0.96) 100%);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), inset 0 1px 1px rgba(255, 255, 255, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.02);
+  background: linear-gradient(180deg, #24242a 0%, #1a1a20 50%, #141418 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.38), inset 0 -1px 1px rgba(0, 0, 0, 0.6);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glossy-panel-interactive:hover {
-  background: linear-gradient(180deg, rgba(27, 28, 36, 0.90) 0%, rgba(16, 17, 23, 0.92) 50%, rgba(7, 7, 11, 0.98) 100%);
-  border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.95), inset 0 1px 2px rgba(255, 255, 255, 0.35), inset 0 0 30px rgba(255, 255, 255, 0.04);
+  background: linear-gradient(180deg, #2a2a32 0%, #202026 50%, #18181d 100%);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.95), inset 0 1px 2px rgba(255, 255, 255, 0.5);
   transform: translateY(-4px);
 }
 
@@ -72,6 +72,6 @@ body {
 .bg-grid-subtle {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }
