@@ -25,7 +25,13 @@ export const metadata: Metadata = {
     "Crafted Minds",
   ],
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/brand/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/brand/favicon.svg",
+    apple: "/brand/cm-monogram-white.svg",
   },
 };
 

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -39,9 +40,16 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
           }`}
         >
           {/* Wordmark & Brand Logo */}
-          <Link href="#home" className="flex items-center gap-2.5">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/20 bg-white/[0.05]">
-              <div className="h-3 w-3 rotate-45 border-t border-l border-white" />
+          <Link href="#home" className="group flex items-center gap-2.5 transition-opacity hover:opacity-95">
+            <div className="relative flex h-8 w-8 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] p-1 backdrop-blur-sm transition-colors group-hover:border-white/30">
+              <Image
+                src="/brand/cm-monogram-white.svg"
+                alt="Crafted Minds CM Monogram"
+                width={28}
+                height={28}
+                className="h-full w-full object-contain"
+                priority
+              />
             </div>
             <span className="text-xs font-bold tracking-[0.2em] text-white uppercase">
               CRAFTED MINDS

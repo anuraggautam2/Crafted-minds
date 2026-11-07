@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 48" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;display=swap');
+      .cm-word-silver-c {
+        font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        fill: url(#word_silver_grad);
+      }
+      .cm-word-silver-m {
+        font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        fill: #94A3B8;
+      }
+    </style>
+    <linearGradient id="word_silver_grad" x1="58" y1="16" x2="160" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#E2E8F0"/>
+      <stop offset="100%" stop-color="#CBD5E1"/>
+    </linearGradient>
+    <linearGradient id="h_silv_c" x1="5" y1="10" x2="30" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="45%" stop-color="#E2E8F0"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+    <linearGradient id="h_silv_m" x1="18" y1="16" x2="40" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="50%" stop-color="#CBD5E1"/>
+      <stop offset="100%" stop-color="#64748B"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(4, 0)">
+    <path d="M 30 10 H 17 C 10.373 10 5 15.373 5 22 V 26 C 5 32.627 10.373 38 17 38 H 30" 
+          stroke="url(#h_silv_c)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 18 34 V 16 L 29 27 L 40 16 V 34" 
+          stroke="url(#h_silv_m)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="58" y="29.5" class="cm-word-silver-c">CRAFTED</text>
+  <text x="172" y="29.5" class="cm-word-silver-m">MINDS</text>
+</svg>

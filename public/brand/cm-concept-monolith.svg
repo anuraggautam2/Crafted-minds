@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="c2_silv" x1="4" y1="6" x2="44" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#F1F5F9"/>
+      <stop offset="100%" stop-color="#CBD5E1"/>
+    </linearGradient>
+    <linearGradient id="c2_graph" x1="18" y1="10" x2="44" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E2E8F0"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+  </defs>
+  <!-- Solid C Crescent -->
+  <path d="M 26 8 H 15 C 8.925 8 4 12.925 4 19 V 29 C 4 35.075 8.925 40 15 40 H 26 V 34 H 15 C 12.239 34 10 31.761 10 29 V 19 C 10 16.239 12.239 14 15 14 H 26 V 8 Z" 
+        fill="url(#c2_silv)"/>
+  <!-- Solid Chiseled M -->
+  <path d="M 18 36 V 16.5 L 27.5 28 L 37 16.5 V 36 H 42 V 12 H 36 L 27.5 22.5 L 19 12 H 13 V 36 H 18 Z" 
+        fill="url(#c2_graph)"/>
+</svg>

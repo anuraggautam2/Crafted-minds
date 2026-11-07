@@ -18,11 +18,20 @@ const inter = Inter({
   display: "swap",
 });
 
-interface TeamMember {
+export interface TeamMember {
   name: string;
   designation: string;
   imageSrc: string;
   initials: string;
+  // Independently configurable photo cropping and face positioning
+  // objectPosition: CSS position (e.g. "50% 18%", "center top", "50% 25%")
+  objectPosition: string;
+  // imageScale: Zoom multiplier (e.g. 1.0 to 1.3, default 1.08) providing headroom for vertical shifting
+  imageScale?: number;
+  // offsetY: Micro vertical offset in % (e.g. -2, 0, 5) to fine-tune headroom
+  offsetY?: number;
+  // offsetX: Micro horizontal offset in % (e.g. 0, -3, 3) to fine-tune horizontal alignment
+  offsetX?: number;
   // Specific tinted glass styles matching member's outfit
   cardBg: string;
   borderColor: string;
@@ -33,12 +42,17 @@ interface TeamMember {
   ambientGlow: string;
 }
 
-const teamMembers: TeamMember[] = [
+export const teamMembers: TeamMember[] = [
   {
     name: "Anurag Gautam",
     designation: "Full-Stack Developer",
     imageSrc: "/images/anuag-gautam.jpg.jpeg",
     initials: "AG",
+    // Configurable crop: Face calibrated with slight headroom
+    objectPosition: "50% 18%",
+    imageScale: 1.08,
+    offsetY: -2,
+    offsetX: 0,
     // Midnight navy / deep blue smoky glass
     cardBg: "from-[#080e1b]/80 via-[#060a14]/75 to-[#04070e]/85",
     borderColor: "border-blue-400/15",
@@ -53,6 +67,11 @@ const teamMembers: TeamMember[] = [
     designation: "Backend Developer",
     imageSrc: "/images/aditya-singh.jpg.jpeg",
     initials: "AS",
+    // Configurable crop: Face calibrated with slight headroom
+    objectPosition: "50% 16%",
+    imageScale: 1.08,
+    offsetY: -2,
+    offsetX: 0,
     // Deep charcoal / black smoky glass
     cardBg: "from-[#111116]/80 via-[#0d0d12]/75 to-[#08080b]/85",
     borderColor: "border-zinc-400/15",
@@ -67,6 +86,11 @@ const teamMembers: TeamMember[] = [
     designation: "UI/UX Designer",
     imageSrc: "/images/aditya-kushwaha.jpg.jpeg",
     initials: "AK",
+    // Configurable crop: Face calibrated with slight headroom
+    objectPosition: "50% 18%",
+    imageScale: 1.08,
+    offsetY: -2,
+    offsetX: 0,
     // Graphite / metallic silver smoky glass
     cardBg: "from-[#14151c]/80 via-[#101117]/75 to-[#0a0b10]/85",
     borderColor: "border-slate-300/18",
@@ -81,6 +105,11 @@ const teamMembers: TeamMember[] = [
     designation: "Frontend Developer",
     imageSrc: "/images/Karunakar-mishra.jpg.jpeg",
     initials: "KM",
+    // Configurable crop: Face calibrated with slight headroom
+    objectPosition: "50% 16%",
+    imageScale: 1.08,
+    offsetY: -2,
+    offsetX: 0,
     // Smoky slate grey glass
     cardBg: "from-[#10141a]/80 via-[#0d1015]/75 to-[#080b0f]/85",
     borderColor: "border-slate-400/15",
@@ -119,18 +148,25 @@ function TeamMemberCard({ member, index }: { member: TeamMember; index: number }
           className={`pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 w-40 h-28 bg-gradient-to-b ${member.ambientGlow} to-transparent blur-2xl rounded-full opacity-60 transition-opacity duration-300 group-hover:opacity-90`}
         />
 
-        {/* Rounded Portrait Container */}
+        {/* Rounded Portrait Container with Independently Configurable Cropping */}
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-[#070709] mb-3.5 sm:mb-4 flex items-center justify-center transition-colors duration-300 group-hover:border-white/20">
           {!imageFailed ? (
-            <Image
-              src={member.imageSrc}
-              alt={`${member.name} — ${member.designation}`}
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-              className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
-              onError={() => setImageFailed(true)}
-              priority={index < 2}
-            />
+            <div className="relative h-full w-full overflow-hidden transition-transform duration-500 ease-out group-hover:scale-105">
+              <Image
+                src={member.imageSrc}
+                alt={`${member.name} — ${member.designation}`}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover"
+                style={{
+                  objectPosition: member.objectPosition,
+                  transform: `scale(${member.imageScale ?? 1.08}) translate(${member.offsetX ?? 0}%, ${member.offsetY ?? 0}%)`,
+                  transformOrigin: member.objectPosition || "center",
+                }}
+                onError={() => setImageFailed(true)}
+                priority={index < 2}
+              />
+            </div>
           ) : (
             /* Neutral Fallback Placeholder (if image ever fails to load) */
             <div className="relative z-10 flex flex-col items-center">

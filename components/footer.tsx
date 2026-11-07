@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MapPin, ArrowRight } from "lucide-react";
 import { GlassCard } from "./ui/glass-card";
 
@@ -53,9 +54,15 @@ export function Footer({ onOpenDemo }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-white/[0.06]">
           {/* Brand & Summary */}
           <div className="space-y-3">
-            <Link href="#home" className="inline-flex items-center gap-2.5">
-              <div className="flex h-6 w-6 items-center justify-center rounded-md border border-white/20 bg-white/[0.05]">
-                <div className="h-2.5 w-2.5 rotate-45 border-t border-l border-white" />
+            <Link href="#home" className="group inline-flex items-center gap-2.5 transition-opacity hover:opacity-95">
+              <div className="relative flex h-7 w-7 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] p-1 backdrop-blur-sm transition-colors group-hover:border-white/30">
+                <Image
+                  src="/brand/cm-monogram-white.svg"
+                  alt="Crafted Minds Logo"
+                  width={24}
+                  height={24}
+                  className="h-full w-full object-contain"
+                />
               </div>
               <span className="text-xs font-bold tracking-[0.2em] text-white uppercase">
                 CRAFTED MINDS
