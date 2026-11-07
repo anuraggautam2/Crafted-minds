@@ -50,11 +50,16 @@ export function HeroGlassComposition() {
       />
 
       {/* Main Smoky Glass Frame */}
-      <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0c0c10]/80 p-5 sm:p-6 backdrop-blur-2xl shadow-[0_16px_48px_rgba(0,0,0,0.6)]">
+      <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.12] bg-gradient-to-b from-[#16171e]/75 via-[#0e0f14]/80 to-[#08080c]/90 p-5 sm:p-6 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.15)]">
         {/* Specular top reflection line */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"
+        />
+        {/* Inner rim reflection ring */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/[0.04]"
         />
 
         {/* Window Header */}
@@ -79,7 +84,7 @@ export function HeroGlassComposition() {
             return (
               <div
                 key={cap.title}
-                className="h-full rounded-xl border border-white/[0.06] bg-white/[0.015] p-3.5 flex flex-col justify-between transition-all duration-300 hover:border-white/15 hover:bg-white/[0.035] hover:-translate-y-0.5 group"
+                className="h-full rounded-xl sm:rounded-2xl border border-white/[0.08] bg-white/[0.02] p-4 flex flex-col justify-between transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.1)] group/tile"
               >
                 <div>
                   <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-zinc-400 mb-2.5 transition-colors group-hover:text-white group-hover:border-white/20">

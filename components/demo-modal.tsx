@@ -71,8 +71,18 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 12 }}
             transition={{ duration: 0.2 }}
-            className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d10] p-6 sm:p-8 backdrop-blur-xl shadow-2xl"
+            className="relative w-full max-w-lg overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-gradient-to-b from-[#14151c]/95 via-[#0e0f14]/95 to-[#08080c]/98 p-6 sm:p-8 backdrop-blur-2xl shadow-[0_25px_65px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.18)]"
           >
+            {/* Top specular reflection */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/35 to-transparent"
+            />
+            {/* Inner rim reflection ring */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/[0.04]"
+            />
             {/* Close Button */}
             <button
               onClick={onClose}
