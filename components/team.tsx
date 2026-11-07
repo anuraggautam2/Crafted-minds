@@ -156,6 +156,7 @@ function TeamMemberCard({ member, index }: { member: TeamMember; index: number }
                 src={member.imageSrc}
                 alt={`${member.name} — ${member.designation}`}
                 fill
+                unoptimized
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
                 style={{
