@@ -3,139 +3,177 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Code, Terminal, Palette, Layers, User } from "lucide-react";
-import { GlassCard } from "./ui/glass-card";
+import { Space_Grotesk, Inter } from "next/font/google";
+import { User } from "lucide-react";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["600"],
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+});
 
 interface TeamMember {
   name: string;
   designation: string;
   imageSrc: string;
-  roleIcon: React.ElementType;
   initials: string;
-  bio: string;
-  specialties: string[];
+  // Specific tinted glass styles matching member's outfit
+  cardBg: string;
+  borderColor: string;
+  borderHover: string;
+  specularGradient: string;
+  specularHover: string;
+  shadowHover: string;
+  ambientGlow: string;
 }
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Aditya Singh",
-    designation: "Backend Developer",
-    imageSrc: "/images/aditya-singh.jpg",
-    roleIcon: Terminal,
-    initials: "AS",
-    bio: "Scalable server architectures, database modeling, and resilient API engineering.",
-    specialties: ["Node.js", "PostgreSQL", "REST APIs"],
+    name: "Anurag Gautam",
+    designation: "Full-Stack Developer",
+    imageSrc: "/images/anuag-gautam.jpg.jpeg",
+    initials: "AG",
+    // Midnight navy / deep blue smoky glass
+    cardBg: "from-[#080e1b]/80 via-[#060a14]/75 to-[#04070e]/85",
+    borderColor: "border-blue-400/15",
+    borderHover: "group-hover:border-blue-300/35",
+    specularGradient: "via-blue-300/25",
+    specularHover: "group-hover:via-blue-200/45",
+    shadowHover: "group-hover:shadow-[0_22px_55px_rgba(3,12,30,0.75)]",
+    ambientGlow: "from-blue-600/10",
   },
   {
-    name: "Karunakar",
-    designation: "Frontend Developer",
-    imageSrc: "/images/karunakar.jpg",
-    roleIcon: Code,
-    initials: "K",
-    bio: "Responsive user interfaces, smooth interactions, and frontend component systems.",
-    specialties: ["Next.js", "React", "Tailwind CSS"],
+    name: "Aditya Singh",
+    designation: "Backend Developer",
+    imageSrc: "/images/aditya-singh.jpg.jpeg",
+    initials: "AS",
+    // Deep charcoal / black smoky glass
+    cardBg: "from-[#111116]/80 via-[#0d0d12]/75 to-[#08080b]/85",
+    borderColor: "border-zinc-400/15",
+    borderHover: "group-hover:border-zinc-300/35",
+    specularGradient: "via-zinc-300/25",
+    specularHover: "group-hover:via-zinc-200/45",
+    shadowHover: "group-hover:shadow-[0_22px_55px_rgba(0,0,0,0.85)]",
+    ambientGlow: "from-zinc-500/10",
   },
   {
     name: "Aditya Kushwaha",
     designation: "UI/UX Designer",
-    imageSrc: "/images/aditya-kushwaha.jpg",
-    roleIcon: Palette,
+    imageSrc: "/images/aditya-kushwaha.jpg.jpeg",
     initials: "AK",
-    bio: "User journeys, design tokens, and wireframe prototypes designed in Figma.",
-    specialties: ["Figma", "UI Systems", "Wireframing"],
+    // Graphite / metallic silver smoky glass
+    cardBg: "from-[#14151c]/80 via-[#101117]/75 to-[#0a0b10]/85",
+    borderColor: "border-slate-300/18",
+    borderHover: "group-hover:border-slate-200/40",
+    specularGradient: "via-slate-200/28",
+    specularHover: "group-hover:via-slate-100/50",
+    shadowHover: "group-hover:shadow-[0_22px_55px_rgba(15,20,32,0.75)]",
+    ambientGlow: "from-slate-400/10",
   },
   {
-    name: "Anurag",
-    designation: "Full-Stack Developer",
-    imageSrc: "/images/anurag.jpg",
-    roleIcon: Layers,
-    initials: "A",
-    bio: "End-to-end web architecture connecting modern frontends with backend engines.",
-    specialties: ["Full-Stack", "TypeScript", "Next.js"],
+    name: "Karunakar Mishra",
+    designation: "Frontend Developer",
+    imageSrc: "/images/Karunakar-mishra.jpg.jpeg",
+    initials: "KM",
+    // Smoky slate grey glass
+    cardBg: "from-[#10141a]/80 via-[#0d1015]/75 to-[#080b0f]/85",
+    borderColor: "border-slate-400/15",
+    borderHover: "group-hover:border-slate-300/35",
+    specularGradient: "via-slate-300/25",
+    specularHover: "group-hover:via-slate-200/45",
+    shadowHover: "group-hover:shadow-[0_22px_55px_rgba(8,16,26,0.75)]",
+    ambientGlow: "from-slate-500/10",
   },
 ];
 
 function TeamMemberCard({ member, index }: { member: TeamMember; index: number }) {
   const [imageFailed, setImageFailed] = useState(false);
-  const RoleIcon = member.roleIcon;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.45, delay: index * 0.07 }}
+      transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
       className="h-full"
     >
-      <GlassCard className="h-full p-5 flex flex-col justify-between group">
-        <div>
-          {/* Rounded Portrait Container */}
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-white/10 bg-[#08080b] mb-4 flex items-center justify-center transition-colors group-hover:border-white/20">
-            {/* Subtle inner texture */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:14px_14px]"
+      {/* Premium Individual Dark Smoky Glass Card with Custom Tint */}
+      <div
+        className={`group relative h-full overflow-hidden rounded-2xl sm:rounded-3xl border ${member.borderColor} ${member.borderHover} bg-gradient-to-b ${member.cardBg} p-3.5 sm:p-4 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-2 ${member.shadowHover} flex flex-col justify-between`}
+      >
+        {/* Soft specular top reflection highlight */}
+        <div
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent ${member.specularGradient} ${member.specularHover} to-transparent transition-opacity duration-300`}
+        />
+
+        {/* Ambient subtle back diffusion matching outfit tint */}
+        <div
+          aria-hidden="true"
+          className={`pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 w-40 h-28 bg-gradient-to-b ${member.ambientGlow} to-transparent blur-2xl rounded-full opacity-60 transition-opacity duration-300 group-hover:opacity-90`}
+        />
+
+        {/* Rounded Portrait Container */}
+        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-[#070709] mb-3.5 sm:mb-4 flex items-center justify-center transition-colors duration-300 group-hover:border-white/20">
+          {!imageFailed ? (
+            <Image
+              src={member.imageSrc}
+              alt={`${member.name} — ${member.designation}`}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+              onError={() => setImageFailed(true)}
+              priority={index < 2}
             />
-
-            {/* Photo or Neutral Monogram Placeholder */}
-            {!imageFailed ? (
-              <Image
-                src={member.imageSrc}
-                alt={`${member.name} — ${member.designation}`}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                onError={() => setImageFailed(true)}
-              />
-            ) : (
-              <div className="relative z-10 flex flex-col items-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03]">
-                  <span className="text-base font-bold font-mono tracking-wider text-white">
-                    {member.initials}
-                  </span>
-                </div>
-                <div className="mt-2.5 inline-flex items-center gap-1 text-[9px] font-mono tracking-widest uppercase text-zinc-500">
-                  <User className="h-2.5 w-2.5" />
-                  <span>PORTRAIT</span>
-                </div>
+          ) : (
+            /* Neutral Fallback Placeholder (if image ever fails to load) */
+            <div className="relative z-10 flex flex-col items-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03]">
+                <span className={`${spaceGrotesk.className} text-base font-semibold tracking-wider text-white/80`}>
+                  {member.initials}
+                </span>
               </div>
-            )}
-
-            {/* Small Elegant Corner Role Icon */}
-            <div className="absolute top-2.5 right-2.5 z-10 flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 bg-[#0a0a0d]/85 text-zinc-400 backdrop-blur-md">
-              <RoleIcon className="h-3.5 w-3.5" />
+              <div className="mt-2.5 inline-flex items-center gap-1 text-[9px] font-mono tracking-widest uppercase text-zinc-500">
+                <User className="h-2.5 w-2.5" />
+                <span>PORTRAIT</span>
+              </div>
             </div>
-          </div>
+          )}
 
-          {/* Member Details */}
-          <div>
-            <h3 className="text-base font-semibold text-white tracking-tight">
-              {member.name}
-            </h3>
-            <p className="text-[11px] font-mono tracking-wider uppercase text-zinc-400 mt-0.5">
-              {member.designation}
-            </p>
-            {/* One concise sentence */}
-            <p className="mt-2 text-xs text-zinc-400 leading-relaxed">
-              {member.bio}
-            </p>
-          </div>
+          {/* Soft inner perimeter reflection highlight */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 rounded-xl sm:rounded-2xl ring-1 ring-inset ring-white/10"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"
+          />
         </div>
 
-        {/* Specialties Tags */}
-        <div className="mt-5 pt-3.5 border-t border-white/[0.06]">
-          <div className="flex flex-wrap gap-1">
-            {member.specialties.map((spec) => (
-              <span
-                key={spec}
-                className="rounded-md border border-white/[0.06] bg-white/[0.02] px-2 py-0.5 text-[10px] font-mono text-zinc-400"
-              >
-                {spec}
-              </span>
-            ))}
-          </div>
+        {/* Text Container: ONLY Full Name and Professional Designation */}
+        <div className="px-1.5 pb-1">
+          {/* Translucent Name Typography (Space Grotesk, 600 weight, 80% opacity, transitions to 100% on hover) */}
+          <h3
+            className={`${spaceGrotesk.className} text-base sm:text-lg font-semibold text-white/80 tracking-tight transition-colors duration-300 group-hover:text-white`}
+          >
+            {member.name}
+          </h3>
+
+          {/* Professional Designation (Inter, smaller, muted silver-grey, medium weight, subtle letter spacing) */}
+          <p
+            className={`${inter.className} mt-1 text-[11px] sm:text-xs font-medium text-zinc-400 tracking-wider uppercase`}
+          >
+            {member.designation}
+          </p>
         </div>
-      </GlassCard>
+      </div>
     </motion.div>
   );
 }
@@ -146,19 +184,19 @@ export function Team() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
-          <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400">
+          <span className={`${inter.className} text-[11px] font-medium uppercase tracking-widest text-zinc-400`}>
             Team
           </span>
-          <h2 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-white">
-            Core Builders
+          <h2 className={`${spaceGrotesk.className} mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-white`}>
+            The Crafted Minds Team
           </h2>
-          <p className="mt-2 text-sm text-zinc-400">
-            Engineers and designers building digital products from concept to production.
+          <p className={`${inter.className} mt-2 text-sm text-zinc-400 font-normal`}>
+            A focused collective of developers and designers building modern digital experiences.
           </p>
         </div>
 
-        {/* 4 Cards Grid with Consistent Heights */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* Responsive Grid: 1 col on mobile, 2 cols on tablet, 4 cols on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {teamMembers.map((member, index) => (
             <TeamMemberCard key={member.name} member={member} index={index} />
           ))}
