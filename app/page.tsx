@@ -23,26 +23,24 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#070709] text-[#ededed] selection:bg-white/20 selection:text-white">
-      {/* Global Layered Ambient Lighting & Depth System */}
+    <div className="relative min-h-screen bg-[#000000] text-[#ededed] selection:bg-white/25 selection:text-white antialiased">
+      {/* Global Layered Ambient Lighting & Depth System on Pure Deep-Black Canvas */}
       <div aria-hidden="true" className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Subtle geometric grid with soft center mask */}
-        <div className="absolute inset-0 bg-grid-subtle opacity-25 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_65%,transparent_100%)]" />
+        <div className="absolute inset-0 bg-grid-subtle opacity-20 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_40%,#000_60%,transparent_100%)]" />
 
-        {/* Ambient Diffusion 1: Top Hero soft silver-white celestial glow */}
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.045)_0%,rgba(148,163,184,0.02)_40%,transparent_70%)] blur-3xl opacity-80" />
+        {/* Ambient Top Glow: Soft celestial silver reflection behind hero */}
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1100px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06)_0%,rgba(200,210,225,0.02)_40%,transparent_70%)] blur-3xl opacity-90" />
 
-        {/* Ambient Diffusion 2: Mid-page smoky graphite & slate ambient reflection */}
-        <div className="absolute top-[32%] left-[15%] w-[850px] h-[650px] bg-[radial-gradient(circle,rgba(255,255,255,0.02)_0%,rgba(71,85,105,0.015)_50%,transparent_70%)] blur-3xl" />
+        {/* Mid-page subtle smoky ambient reflections */}
+        <div className="absolute top-[35%] left-[10%] w-[800px] h-[600px] bg-[radial-gradient(circle,rgba(255,255,255,0.025)_0%,rgba(148,163,184,0.012)_50%,transparent_70%)] blur-3xl" />
+        <div className="absolute top-[60%] right-[-100px] w-[800px] h-[700px] bg-[radial-gradient(circle,rgba(255,255,255,0.02)_0%,rgba(100,116,139,0.01)_50%,transparent_70%)] blur-3xl" />
 
-        {/* Ambient Diffusion 3: Lower-mid page right balance */}
-        <div className="absolute top-[58%] right-[-150px] w-[800px] h-[750px] bg-[radial-gradient(circle,rgba(255,255,255,0.018)_0%,rgba(100,116,139,0.012)_50%,transparent_70%)] blur-3xl" />
+        {/* Lower page upward ambient rim light */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1200px] h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,0.04)_0%,rgba(148,163,184,0.015)_40%,transparent_70%)] blur-3xl" />
 
-        {/* Ambient Diffusion 4: Footer upward ambient rim light */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1100px] h-[450px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,0.035)_0%,rgba(148,163,184,0.015)_40%,transparent_70%)] blur-3xl" />
-
-        {/* Smooth vignette for depth */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(7,7,9,0.3)_65%,rgba(5,5,7,0.85)_100%)]" />
+        {/* Deep edge vignette maintaining pure deep-black contrast */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_70%,rgba(0,0,0,0.95)_100%)]" />
       </div>
 
       {/* Floating Header / Navbar */}
@@ -53,7 +51,7 @@ export default function Home() {
         {/* Hero Section */}
         <Hero onOpenDemo={() => handleOpenDemo()} />
 
-        {/* Team Section (positioned immediately after the hero) */}
+        {/* Team Section (positioned immediately below Hero) */}
         <Team />
 
         {/* Services Section */}

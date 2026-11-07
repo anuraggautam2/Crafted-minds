@@ -190,24 +190,30 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
     <>
       <header className="fixed top-0 left-0 right-0 z-40 px-4 sm:px-6 lg:px-8 pt-4 transition-all duration-300">
         <div className="max-w-6xl mx-auto">
-          {/* Floating Premium Glass Navbar */}
+          {/* Floating Pill-Shaped Translucent Glossy Glass Navbar */}
           <nav
-            className={`relative flex items-center justify-between rounded-full px-4 sm:px-5 py-2.5 sm:py-3 transition-all duration-300 ${
+            className={`relative flex items-center justify-between rounded-full px-4 sm:px-6 py-2.5 sm:py-3 transition-all duration-300 ${
               scrolled
-                ? "bg-gradient-to-b from-[#13141a]/90 via-[#0e0f14]/92 to-[#08080c]/95 border-white/[0.14] shadow-[0_16px_45px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.15)]"
-                : "bg-gradient-to-b from-[#16171e]/75 via-[#0e0f14]/80 to-[#08080c]/85 border-white/[0.10] shadow-[0_10px_35px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.12)]"
-            } backdrop-blur-2xl border`}
+                ? "bg-black/80 border-white/[0.16] shadow-[0_20px_50px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(255,255,255,0.22)]"
+                : "bg-black/60 border-white/[0.12] shadow-[0_12px_35px_rgba(0,0,0,0.65),inset_0_1px_1px_rgba(255,255,255,0.18)]"
+            } backdrop-blur-3xl border overflow-hidden`}
           >
             {/* Specular top reflection line */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/25 to-transparent"
+              className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent"
+            />
+
+            {/* Subtle upper blurred reflection for glossy finish */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.16)_0%,transparent_70%)] blur-xl"
             />
 
             {/* Inner rim refraction ring */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-white/[0.04]"
+              className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-white/[0.06]"
             />
 
             {/* Wordmark & Brand Logo */}
@@ -248,20 +254,20 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
               {/* Dedicated Search Button */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-zinc-300 hover:text-white hover:border-white/25 hover:bg-white/[0.07] transition-all cursor-pointer shadow-sm"
+                className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3.5 py-1.5 text-xs text-zinc-300 hover:text-white hover:border-white/25 hover:bg-white/[0.08] transition-all cursor-pointer shadow-sm"
                 aria-label="Search CRAFTED MINDS"
               >
                 <Search className="h-3.5 w-3.5 text-zinc-400 transition-colors group-hover:text-white" />
-                <span className="text-[11px] text-zinc-400 group-hover:text-zinc-300">Search</span>
+                <span className="text-[11px] text-zinc-400 group-hover:text-zinc-200">Search</span>
                 <kbd className="hidden lg:inline-flex items-center rounded border border-white/10 bg-white/[0.04] px-1.5 py-0.5 text-[9px] font-mono text-zinc-400">
                   ⌘K
                 </kbd>
               </button>
 
-              {/* Get in Touch CTA */}
+              {/* Premium Black-and-White Pill CTA */}
               <button
                 onClick={onOpenDemo}
-                className="rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-black transition-all hover:bg-zinc-200 active:scale-[0.98] shadow-[0_2px_10px_rgba(255,255,255,0.15)] cursor-pointer"
+                className="rounded-full bg-white px-5 py-1.5 text-xs font-semibold text-black transition-all hover:bg-zinc-100 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] active:scale-[0.98] cursor-pointer"
               >
                 Get in Touch
               </button>
@@ -281,55 +287,50 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
               {/* Mobile Contact Quick Button */}
               <button
                 onClick={onOpenDemo}
-                className="rounded-full bg-white px-3 py-1 text-[11px] font-semibold text-black"
+                className="rounded-full bg-white px-3.5 py-1 text-[11px] font-semibold text-black hover:bg-zinc-200"
               >
-                Contact
+                Inquire
               </button>
 
-              {/* Mobile Menu Toggle */}
+              {/* Hamburger Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="rounded-full p-1.5 text-zinc-400 hover:text-white bg-white/[0.04] border border-white/10 transition-all"
-                aria-label="Toggle navigation menu"
+                className="rounded-full p-2 text-zinc-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               >
-                {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+                {mobileMenuOpen ? (
+                  <X className="h-4 w-4" />
+                ) : (
+                  <Menu className="h-4 w-4" />
+                )}
               </button>
             </div>
           </nav>
         </div>
 
-        {/* Mobile Dropdown Glass Menu */}
+        {/* Mobile Dropdown Menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -8 }}
+              initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.15 }}
-              className="md:hidden mt-2 max-w-6xl mx-auto overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-[#14151c]/95 via-[#0e0f14]/95 to-[#08080c]/98 p-4 backdrop-blur-2xl shadow-2xl"
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden mt-2 max-w-6xl mx-auto"
             >
-              <div className="flex flex-col space-y-1">
-                {/* Mobile Search Trigger in Menu */}
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    setSearchOpen(true);
-                  }}
-                  className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-xs text-zinc-300 mb-2"
-                >
-                  <span className="flex items-center gap-2">
-                    <Search className="h-3.5 w-3.5 text-zinc-400" />
-                    <span>Search sections & capabilities...</span>
-                  </span>
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase">⌘K</span>
-                </button>
+              <div className="relative overflow-hidden rounded-2xl border border-white/12 bg-black/90 p-4 backdrop-blur-3xl shadow-[0_20px_50px_rgba(0,0,0,0.9)] flex flex-col gap-2">
+                {/* Specular top reflection */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-x-4 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                />
 
                 {navLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="rounded-xl px-3 py-2 text-xs font-medium text-zinc-300 hover:bg-white/[0.05] hover:text-white transition-colors"
+                    className="rounded-xl px-3 py-2 text-xs font-medium text-zinc-300 hover:bg-white/[0.06] hover:text-white transition-colors"
                   >
                     {link.label}
                   </a>
@@ -362,21 +363,27 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={handleCloseSearch}
-              className="fixed inset-0 bg-black/75 backdrop-blur-md"
+              className="fixed inset-0 bg-black/80 backdrop-blur-md"
             />
 
-            {/* Smoky Glass Search Modal Card */}
+            {/* Glossy Obsidian Search Modal Card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.96, y: -10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: -10 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative z-10 w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-gradient-to-b from-[#14151c]/95 via-[#0e0f14]/95 to-[#08080c]/98 p-4 sm:p-5 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.18)]"
+              className="relative z-10 w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-white/14 bg-gradient-to-b from-[#14151c]/95 via-[#0e0f14]/96 to-[#050508]/98 p-4 sm:p-5 backdrop-blur-3xl shadow-[0_30px_70px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.22)]"
             >
               {/* Specular top highlight */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/35 to-transparent"
+                className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/45 to-transparent"
+              />
+
+              {/* Upper soft white reflection */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 w-4/5 h-28 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.18)_0%,transparent_75%)] blur-xl"
               />
 
               {/* Search Input Bar */}

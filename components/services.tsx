@@ -52,7 +52,7 @@ export function Services({ onSelectService }: ServicesProps) {
   ];
 
   return (
-    <section id="services" className="relative py-20 md:py-28 overflow-hidden border-t border-white/[0.06]">
+    <section id="services" className="relative py-20 md:py-28 overflow-hidden border-t border-white/[0.08]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
@@ -67,7 +67,7 @@ export function Services({ onSelectService }: ServicesProps) {
           </p>
         </div>
 
-        {/* Services Grid (4 Cards with Consistent Heights) */}
+        {/* Services Grid (4 Cards with Consistent Heights & Glossy Obsidian Finish) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -84,10 +84,10 @@ export function Services({ onSelectService }: ServicesProps) {
                   <div>
                     {/* Header: Small elegant icon & ID */}
                     <div className="flex items-center justify-between mb-4">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-zinc-300 transition-colors group-hover:text-white group-hover:border-white/20">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/12 bg-white/[0.04] text-zinc-300 transition-colors group-hover:text-white group-hover:border-white/25 group-hover:bg-white/[0.08]">
                         <Icon className="h-4 w-4" />
                       </div>
-                      <span className="text-xs font-mono text-zinc-500">
+                      <span className="text-xs font-mono text-zinc-500 font-medium">
                         {service.id}
                       </span>
                     </div>
@@ -104,12 +104,12 @@ export function Services({ onSelectService }: ServicesProps) {
                   </div>
 
                   {/* Footer: Tags and Action Link */}
-                  <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between gap-3">
+                  <div className="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between gap-3">
                     <div className="flex flex-wrap gap-1.5">
                       {service.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-md border border-white/[0.06] bg-white/[0.02] px-2 py-0.5 text-[10px] font-mono text-zinc-400"
+                          className="rounded-full border border-white/[0.08] bg-white/[0.025] px-2.5 py-0.5 text-[10px] font-mono text-zinc-400"
                         >
                           {tag}
                         </span>
@@ -118,7 +118,7 @@ export function Services({ onSelectService }: ServicesProps) {
 
                     <button
                       onClick={() => onSelectService(service.title)}
-                      className="shrink-0 inline-flex items-center gap-1 text-xs font-medium text-zinc-300 hover:text-white transition-colors cursor-pointer"
+                      className="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/[0.04] px-3.5 py-1 text-xs font-medium text-zinc-300 hover:text-white hover:border-white/30 hover:bg-white/[0.08] transition-all cursor-pointer"
                       aria-label={`Inquire about ${service.title}`}
                     >
                       <span>Inquire</span>

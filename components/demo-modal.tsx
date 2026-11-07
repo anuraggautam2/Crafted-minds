@@ -76,12 +76,17 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
             {/* Top specular reflection */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/35 to-transparent"
+              className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/45 to-transparent"
+            />
+            {/* Upper soft white reflection */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -top-14 left-1/2 -translate-x-1/2 w-4/5 h-36 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.2)_0%,transparent_75%)] blur-xl"
             />
             {/* Inner rim reflection ring */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/[0.04]"
+              className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/[0.08]"
             />
             {/* Close Button */}
             <button

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Globe, Palette, ShoppingBag, Wrench } from "lucide-react";
+import { Globe, Palette, ShoppingBag, Wrench, ShieldCheck, Zap } from "lucide-react";
 
 export function HeroGlassComposition() {
   const capabilities = [
@@ -38,57 +38,71 @@ export function HeroGlassComposition() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 22 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.25 }}
-      className="relative w-full max-w-4xl mx-auto mt-12 md:mt-14"
+      transition={{ duration: 0.6, delay: 0.3 }}
+      className="relative w-full max-w-4xl mx-auto mt-14 md:mt-16"
     >
-      {/* Soft background light diffusion */}
+      {/* Background celestial ambient light behind panel */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 w-3/4 h-52 bg-white/[0.02] blur-3xl rounded-full"
+        className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-4/5 h-64 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.07)_0%,transparent_70%)] blur-3xl rounded-full"
       />
 
-      {/* Main Smoky Glass Frame */}
-      <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.12] bg-gradient-to-b from-[#16171e]/75 via-[#0e0f14]/80 to-[#08080c]/90 p-5 sm:p-6 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.15)]">
-        {/* Specular top reflection line */}
+      {/* Large Charcoal-Black Glossy Glass Panel */}
+      <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.13] bg-gradient-to-b from-[#14151b]/90 via-[#0b0c10]/92 to-[#040407]/97 p-5 sm:p-7 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.95),inset_0_1px_1px_rgba(255,255,255,0.28)] transition-all duration-300 hover:border-white/[0.22]">
+        {/* Crisp 1px Top Specular Reflection Edge */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"
-        />
-        {/* Inner rim reflection ring */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/[0.04]"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/50 to-transparent transition-opacity duration-300 group-hover:via-white/70"
         />
 
-        {/* Window Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
+        {/* Strong, Soft, Blurred White Reflection Near Upper Edge (Signature Glossy Finish) */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-4/5 h-52 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.22)_0%,rgba(255,255,255,0.06)_45%,transparent_75%)] blur-2xl opacity-90 transition-opacity duration-300 group-hover:opacity-100"
+        />
+
+        {/* Inset Rim Refraction Ring */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/[0.08]"
+        />
+
+        {/* Panel Window Header */}
+        <div className="relative z-10 flex items-center justify-between pb-4 border-b border-white/[0.08]">
           <div className="flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-white/25" />
-            <div className="h-2 w-2 rounded-full bg-white/10" />
-            <div className="h-2 w-2 rounded-full bg-white/10" />
-            <span className="ml-2 text-xs font-mono text-zinc-400">
+            <div className="h-2 w-2 rounded-full bg-white/30" />
+            <div className="h-2 w-2 rounded-full bg-white/12" />
+            <div className="h-2 w-2 rounded-full bg-white/12" />
+            <span className="ml-2 text-xs font-mono text-zinc-300 tracking-wider">
               craftedminds.studio
             </span>
           </div>
-          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest hidden sm:block">
-            Digital Engineering
-          </span>
+          <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400 uppercase tracking-widest hidden sm:flex">
+            <ShieldCheck className="h-3 w-3 text-emerald-400" />
+            <span>Digital Engineering Collective</span>
+          </div>
         </div>
 
-        {/* Studio Capabilities Overview (4 Consistent Tiles) */}
-        <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        {/* Studio Capabilities Overview (4 Glossy Obsidian Sub-panels) */}
+        <div className="relative z-10 mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           {capabilities.map((cap) => {
             const Icon = cap.icon;
             return (
               <div
                 key={cap.title}
-                className="h-full rounded-xl sm:rounded-2xl border border-white/[0.08] bg-white/[0.02] p-4 flex flex-col justify-between transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.1)] group/tile"
+                className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-transparent p-4 flex flex-col justify-between transition-all duration-300 hover:border-white/25 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.2)] group/tile"
               >
+                {/* Mini Top Specular Highlight */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/25 to-transparent transition-opacity group-hover/tile:via-white/50"
+                />
+
                 <div>
-                  <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-zinc-400 mb-2.5 transition-colors group-hover:text-white group-hover:border-white/20">
-                    <Icon className="h-3.5 w-3.5" />
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/12 bg-white/[0.04] text-zinc-300 mb-3 transition-colors group-hover/tile:text-white group-hover/tile:border-white/25 group-hover/tile:bg-white/[0.08]">
+                    <Icon className="h-4 w-4" />
                   </div>
                   <h4 className="text-xs font-semibold text-white tracking-tight">
                     {cap.title}
@@ -103,13 +117,16 @@ export function HeroGlassComposition() {
         </div>
 
         {/* Tech Stack Footer */}
-        <div className="mt-5 pt-4 border-t border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-xs">
-          <span className="text-[11px] text-zinc-500 font-mono">Core Stack:</span>
+        <div className="relative z-10 mt-5 pt-4 border-t border-white/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-1.5 text-[11px] text-zinc-400 font-mono">
+            <Zap className="h-3 w-3 text-amber-400" />
+            <span>Core Production Stack:</span>
+          </div>
           <div className="flex flex-wrap items-center gap-1.5">
             {technologies.map((tech) => (
               <span
                 key={tech}
-                className="rounded-md border border-white/[0.06] bg-white/[0.02] px-2 py-0.5 text-[10px] font-mono text-zinc-400"
+                className="rounded-full border border-white/[0.10] bg-white/[0.03] px-2.5 py-0.5 text-[10px] font-mono text-zinc-300 backdrop-blur-md transition-colors hover:border-white/25 hover:text-white"
               >
                 {tech}
               </span>

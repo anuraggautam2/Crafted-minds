@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #070709;
-  --foreground: #f4f4f5;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 @theme inline {
@@ -15,14 +15,16 @@
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
+  background-color: #000000;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: #000000;
+  color: #ffffff;
   font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   overflow-x: hidden;
-  selection-background-color: rgba(255, 255, 255, 0.2);
+  selection-background-color: rgba(255, 255, 255, 0.25);
+  selection-color: #ffffff;
 }
 
 /* Custom Sleek Dark Glass Scrollbar */
@@ -30,62 +32,46 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #070709;
+  background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 9999px;
-  border: 2px solid #070709;
+  border: 2px solid #000000;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.3);
 }
 
-/* Glassmorphism utility helpers */
-.glass-surface {
-  background: linear-gradient(180deg, rgba(22, 23, 30, 0.7) 0%, rgba(14, 15, 20, 0.75) 50%, rgba(8, 8, 12, 0.85) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+/* Glossy Obsidian Glass Utility Helpers */
+.glossy-panel {
+  background: linear-gradient(180deg, rgba(20, 21, 27, 0.85) 0%, rgba(11, 12, 16, 0.90) 50%, rgba(4, 4, 7, 0.96) 100%);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), inset 0 1px 1px rgba(255, 255, 255, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.02);
 }
 
-.glass-surface-interactive {
-  background: linear-gradient(180deg, rgba(22, 23, 30, 0.7) 0%, rgba(14, 15, 20, 0.75) 50%, rgba(8, 8, 12, 0.85) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+.glossy-panel-interactive {
+  background: linear-gradient(180deg, rgba(20, 21, 27, 0.85) 0%, rgba(11, 12, 16, 0.90) 50%, rgba(4, 4, 7, 0.96) 100%);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), inset 0 1px 1px rgba(255, 255, 255, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.02);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-surface-interactive:hover {
-  background: linear-gradient(180deg, rgba(27, 28, 36, 0.8) 0%, rgba(17, 18, 24, 0.85) 50%, rgba(10, 10, 15, 0.9) 100%);
-  border-color: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+.glossy-panel-interactive:hover {
+  background: linear-gradient(180deg, rgba(27, 28, 36, 0.90) 0%, rgba(16, 17, 23, 0.92) 50%, rgba(7, 7, 11, 0.98) 100%);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.95), inset 0 1px 2px rgba(255, 255, 255, 0.35), inset 0 0 30px rgba(255, 255, 255, 0.04);
   transform: translateY(-4px);
-}
-
-.glass-specular {
-  position: relative;
-  overflow: hidden;
-}
-
-.glass-specular::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  pointer-events: none;
 }
 
 /* Subtle background grid */
 .bg-grid-subtle {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 }
