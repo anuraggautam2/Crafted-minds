@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin, ArrowRight, ShieldCheck } from "lucide-react";
+import { Mail, MapPin, ArrowRight, ShieldCheck, Phone } from "lucide-react";
 import { GlassCard } from "./ui/glass-card";
 
 interface FooterProps {
@@ -58,11 +58,11 @@ export function Footer({ onOpenDemo }: FooterProps) {
 
               {/* Polished Obsidian Glass Pill Link */}
               <a
-                href="mailto:inquiries@craftedminds.studio"
+                href="mailto:craftedmindsinfo@gmail.com"
                 className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-gradient-to-b from-[#242630]/90 to-[#121318]/95 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white hover:text-white hover:border-white/45 hover:from-[#2e303d] hover:to-[#181920] hover:shadow-[0_10px_25px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.4)] transition-all shadow-[0_4px_16px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.25)]"
               >
                 <Mail className="h-4 w-4 text-zinc-300" />
-                <span>inquiries@craftedminds.studio</span>
+                <span>craftedmindsinfo@gmail.com</span>
               </a>
             </div>
           </div>
@@ -177,8 +177,14 @@ export function Footer({ onOpenDemo }: FooterProps) {
             <ul className="space-y-3 text-xs text-zinc-300">
               <li className="flex items-center gap-2">
                 <Mail className="h-3.5 w-3.5 text-zinc-400" />
-                <a href="mailto:inquiries@craftedminds.studio" className="hover:text-white transition-colors">
-                  inquiries@craftedminds.studio
+                <a href="mailto:craftedmindsinfo@gmail.com" className="hover:text-white transition-colors">
+                  craftedmindsinfo@gmail.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-3.5 w-3.5 text-zinc-400" />
+                <a href="https://wa.me/917392029603" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                  +91 7392029603
                 </a>
               </li>
               <li className="flex items-center gap-2">

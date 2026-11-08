@@ -60,7 +60,7 @@ export function TestimonialsFAQ({ onOpenDemo }: TestimonialsFAQProps) {
     {
       question: "How do we get started with CRAFTED MINDS?",
       answer:
-        "Click 'Discuss Your Project' or email us directly at inquiries@craftedminds.studio. We will schedule a technical brief to review your requirements and provide a clear timeline within 48 hours.",
+        "Click 'Discuss Your Project' or reach out to us at craftedmindsinfo@gmail.com or WhatsApp +91 7392029603. We will review your project brief and follow up with a technical roadmap within 24 hours.",
     },
   ];
 

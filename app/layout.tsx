@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
+    <html suppressHydrationWarning
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}
     >
