@@ -320,6 +320,8 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="rounded-full p-2 text-white hover:bg-white/[0.10] transition-colors"
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation-menu"
               >
                 {mobileMenuOpen ? (
                   <X className="h-4 w-4" />
@@ -340,6 +342,9 @@ export function Navbar({ onOpenDemo }: NavbarProps) {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
               className="lg:hidden mt-2 max-w-6xl mx-auto"
+              id="mobile-navigation-menu"
+              role="region"
+              aria-label="Mobile Navigation"
             >
               <div className="relative overflow-hidden rounded-2xl border border-white/20 bg-[#1e1e24] p-4 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.3)] flex flex-col gap-2">
                 {/* Specular top reflection */}

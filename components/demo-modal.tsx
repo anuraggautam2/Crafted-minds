@@ -135,6 +135,10 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
 
           {/* Modal Container: Polished Obsidian Glass */}
           <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="contact-modal-title"
+            aria-describedby="contact-modal-desc"
             initial={{ opacity: 0, scale: 0.96, y: 14 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 14 }}
@@ -172,7 +176,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
             </button>
 
             {isSubmitted ? (
-              <div className="flex flex-col items-center justify-center py-10 text-center relative z-10">
+              <div role="status" aria-live="polite" className="flex flex-col items-center justify-center py-10 text-center relative z-10">
                 <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/[0.08] border border-white/25 text-white shadow-[0_0_30px_rgba(255,255,255,0.25)]">
                   <CheckCircle2 className="h-8 w-8 text-emerald-400" />
                 </div>
@@ -216,17 +220,17 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                     <span>Direct Engineering Intake</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-white tracking-tight mt-2.5">
+                  <h3 id="contact-modal-title" className="text-2xl font-bold text-white tracking-tight mt-2.5">
                     Start Your Project Consultation
                   </h3>
-                  <p className="text-xs sm:text-sm text-zinc-300 mt-1">
+                  <p id="contact-modal-desc" className="text-xs sm:text-sm text-zinc-300 mt-1">
                     Fill out your project details. We review every submission directly and follow up with tailored technical recommendations.
                   </p>
                 </div>
 
                 {/* Error Banner */}
                 {errorMessage && (
-                  <div className="mb-5 flex items-start gap-2.5 rounded-xl border border-rose-500/40 bg-rose-950/40 p-3.5 text-xs text-rose-200">
+                  <div role="alert" aria-live="assertive" className="mb-5 flex items-start gap-2.5 rounded-xl border border-rose-500/40 bg-rose-950/40 p-3.5 text-xs text-rose-200">
                     <AlertCircle className="h-4 w-4 shrink-0 text-rose-400 mt-0.5" />
                     <div className="flex-1 leading-relaxed">{errorMessage}</div>
                   </div>
