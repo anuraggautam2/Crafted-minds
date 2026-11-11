@@ -143,7 +143,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 14 }}
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-2xl my-auto max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl border border-white/[0.22] bg-gradient-to-b from-[#242632]/98 via-[#161720]/98 to-[#0c0d12]/98 p-5 sm:p-8 backdrop-blur-3xl shadow-[0_35px_90px_rgba(0,0,0,0.98),inset_0_1px_1px_rgba(255,255,255,0.45),inset_0_-1px_1px_rgba(0,0,0,0.7)]"
+            className="relative w-full max-w-2xl my-auto max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl border border-white/[0.22] bg-gradient-to-b from-[#262833]/98 via-[#181920]/98 to-[#0c0d11]/98 p-5 sm:p-8 backdrop-blur-3xl shadow-[0_35px_90px_rgba(0,0,0,0.98),inset_0_1px_1px_rgba(255,255,255,0.45),inset_0_-1px_1px_rgba(0,0,0,0.7)]"
           >
             {/* Top specular reflection line */}
             <div
@@ -153,7 +153,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
             {/* Upper soft white reflection aura */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 w-[90%] h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.4)_0%,rgba(255,255,255,0.12)_45%,transparent_75%)] blur-2xl"
+              className="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 w-[90%] h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.45)_0%,rgba(255,255,255,0.16)_45%,transparent_75%)] blur-2xl"
             />
             {/* Diagonal sheen */}
             <div
@@ -169,7 +169,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute right-4 top-4 sm:right-6 sm:top-6 z-20 rounded-full p-2 text-zinc-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer border border-white/10"
+              className="absolute right-4 top-4 sm:right-6 sm:top-6 z-20 rounded-full p-2 text-zinc-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all cursor-pointer border border-white/10"
               aria-label="Close dialog"
             >
               <X className="h-4 w-4" />
@@ -198,7 +198,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                 <div className="mt-6 flex flex-wrap gap-3 justify-center">
                   <button
                     onClick={handleReset}
-                    className="rounded-full border border-white/25 bg-gradient-to-b from-[#242632] to-[#121318] px-7 py-2.5 text-xs font-semibold text-white hover:border-white/45 hover:from-[#2e303d] hover:to-[#181920] transition cursor-pointer shadow-[0_4px_14px_rgba(0,0,0,0.6)]"
+                    className="rounded-full border border-white/[0.22] bg-gradient-to-b from-[#262833] via-[#181920] to-[#0c0d11] px-7 py-2.5 text-xs font-semibold text-white hover:border-white/[0.45] hover:from-[#2e303d] hover:via-[#1e2028] hover:to-[#0f1015] transition cursor-pointer shadow-[0_4px_16px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.35)]"
                   >
                     Done
                   </button>
@@ -267,7 +267,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
                         placeholder="e.g. Alex Sharma"
-                        className="w-full rounded-xl border border-white/20 bg-[#121318]/90 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/50 focus:ring-1 focus:ring-white/25"
+                        className="w-full rounded-xl border border-white/[0.20] bg-[#101116]/95 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/50 focus:ring-1 focus:ring-white/25 shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)]"
                       />
                     </div>
 
@@ -285,7 +285,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                         value={businessName}
                         onChange={(e) => setBusinessName(e.target.value)}
                         placeholder="e.g. Apex Studio"
-                        className="w-full rounded-xl border border-white/20 bg-[#121318]/90 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/50 focus:ring-1 focus:ring-white/25"
+                        className="w-full rounded-xl border border-white/[0.20] bg-[#101116]/95 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/50 focus:ring-1 focus:ring-white/25 shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)]"
                       />
                     </div>
                   </div>
@@ -306,7 +306,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="alex@company.com"
-                        className="w-full rounded-xl border border-white/20 bg-[#121318]/90 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/50 focus:ring-1 focus:ring-white/25"
+                        className="w-full rounded-xl border border-white/[0.20] bg-[#101116]/95 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/50 focus:ring-1 focus:ring-white/25 shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)]"
                       />
                     </div>
 
@@ -324,7 +324,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         placeholder="+91 98765 43210"
-                        className="w-full rounded-xl border border-white/20 bg-[#121318]/90 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/50 focus:ring-1 focus:ring-white/25"
+                        className="w-full rounded-xl border border-white/[0.20] bg-[#101116]/95 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/50 focus:ring-1 focus:ring-white/25 shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)]"
                       />
                     </div>
                   </div>
@@ -343,10 +343,10 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                         required
                         value={businessCategory}
                         onChange={(e) => setBusinessCategory(e.target.value)}
-                        className="w-full rounded-xl border border-white/20 bg-[#121318] px-3.5 py-2.5 text-sm text-white outline-none transition focus:border-white/50"
+                        className="w-full rounded-xl border border-white/[0.20] bg-[#101116] px-3.5 py-2.5 text-sm text-white outline-none transition focus:border-white/50 focus:ring-1 focus:ring-white/25 shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)]"
                       >
                         {BUSINESS_CATEGORIES.map((cat) => (
-                          <option key={cat} value={cat} className="bg-[#121318] text-white">
+                          <option key={cat} value={cat} className="bg-[#101116] text-white">
                             {cat}
                           </option>
                         ))}
@@ -365,10 +365,10 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                         required
                         value={service}
                         onChange={(e) => setService(e.target.value)}
-                        className="w-full rounded-xl border border-white/20 bg-[#121318] px-3.5 py-2.5 text-sm text-white outline-none transition focus:border-white/50"
+                        className="w-full rounded-xl border border-white/[0.20] bg-[#101116] px-3.5 py-2.5 text-sm text-white outline-none transition focus:border-white/50 focus:ring-1 focus:ring-white/25 shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)]"
                       >
                         {SERVICE_OPTIONS.map((srv) => (
-                          <option key={srv} value={srv} className="bg-[#121318] text-white">
+                          <option key={srv} value={srv} className="bg-[#101116] text-white">
                             {srv}
                           </option>
                         ))}
@@ -388,7 +388,7 @@ export function DemoModal({ isOpen, onClose, defaultService }: DemoModalProps) {
                       value={projectDescription}
                       onChange={(e) => setProjectDescription(e.target.value)}
                       placeholder="Briefly describe your goals, required features, timeline, and any specific preferences..."
-                      className="w-full rounded-xl border border-white/20 bg-[#121318]/90 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/50 resize-none leading-relaxed"
+                      className="w-full rounded-xl border border-white/[0.20] bg-[#101116]/95 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-white/50 focus:ring-1 focus:ring-white/25 shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)] resize-none leading-relaxed"
                     />
                   </div>
 

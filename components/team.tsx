@@ -44,9 +44,9 @@ export const teamMembers: TeamMember[] = [
     imageScale: 1.08,
     offsetY: -2,
     offsetX: 0,
-    // Visible obsidian surface with subtle navy undertone
-    cardBg: "from-[#242738]/92 via-[#181926]/94 to-[#0e0f17]/98",
-    cardHoverBg: "hover:from-[#2c3044] hover:via-[#1e2030] hover:to-[#12131e]",
+    // Canonical glossy obsidian tile surface
+    cardBg: "from-[#262833]/92 via-[#181920]/94 to-[#0c0d11]/98",
+    cardHoverBg: "hover:from-[#2e303d] hover:via-[#1e2028] hover:to-[#0f1015]",
   },
   {
     name: "Aditya Singh",
@@ -58,9 +58,9 @@ export const teamMembers: TeamMember[] = [
     imageScale: 1.08,
     offsetY: -2,
     offsetX: 0,
-    // Visible obsidian deep graphite surface
+    // Canonical glossy obsidian tile surface
     cardBg: "from-[#262833]/92 via-[#181920]/94 to-[#0c0d11]/98",
-    cardHoverBg: "hover:from-[#2e313d] hover:via-[#1e2028] hover:to-[#101116]",
+    cardHoverBg: "hover:from-[#2e303d] hover:via-[#1e2028] hover:to-[#0f1015]",
   },
   {
     name: "Aditya Kushwaha",
@@ -72,9 +72,9 @@ export const teamMembers: TeamMember[] = [
     imageScale: 1.08,
     offsetY: -2,
     offsetX: 0,
-    // Visible obsidian metallic graphite surface
-    cardBg: "from-[#282936]/92 via-[#1a1b24]/94 to-[#0e0f15]/98",
-    cardHoverBg: "hover:from-[#303242] hover:via-[#20212c] hover:to-[#12131a]",
+    // Canonical glossy obsidian tile surface
+    cardBg: "from-[#262833]/92 via-[#181920]/94 to-[#0c0d11]/98",
+    cardHoverBg: "hover:from-[#2e303d] hover:via-[#1e2028] hover:to-[#0f1015]",
   },
   {
     name: "Karunakar Mishra",
@@ -86,9 +86,9 @@ export const teamMembers: TeamMember[] = [
     imageScale: 1.08,
     offsetY: -2,
     offsetX: 0,
-    // Visible obsidian slate surface
-    cardBg: "from-[#252a35]/92 via-[#191d25]/94 to-[#0d1015]/98",
-    cardHoverBg: "hover:from-[#2c3340] hover:via-[#1e232d] hover:to-[#11141a]",
+    // Canonical glossy obsidian tile surface
+    cardBg: "from-[#262833]/92 via-[#181920]/94 to-[#0c0d11]/98",
+    cardHoverBg: "hover:from-[#2e303d] hover:via-[#1e2028] hover:to-[#0f1015]",
   },
 ];
 
@@ -105,7 +105,7 @@ function TeamMemberCard({ member, index }: { member: TeamMember; index: number }
     >
       {/* Visible Charcoal-Obsidian Glass Card with Reflective Lighting */}
       <div
-        className={`group relative h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.22] hover:border-white/[0.45] bg-gradient-to-b ${member.cardBg} ${member.cardHoverBg} p-3.5 sm:p-4 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-2 shadow-[0_25px_60px_rgba(0,0,0,0.95),inset_0_1px_1px_rgba(255,255,255,0.45),inset_0_-1px_1px_rgba(0,0,0,0.7)] hover:shadow-[0_35px_80px_rgba(0,0,0,0.98),inset_0_1px_2px_rgba(255,255,255,0.60)] flex flex-col justify-between`}
+        className={`group relative h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.22] hover:border-white/[0.45] bg-gradient-to-b ${member.cardBg} ${member.cardHoverBg} p-3.5 sm:p-4 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-2 active:scale-[0.99] shadow-[0_25px_60px_rgba(0,0,0,0.95),inset_0_1px_1px_rgba(255,255,255,0.45),inset_0_-1px_1px_rgba(0,0,0,0.7)] hover:shadow-[0_35px_80px_rgba(0,0,0,0.98),inset_0_1px_2px_rgba(255,255,255,0.60)] flex flex-col justify-between`}
       >
         {/* Precision Specular Top Reflection Line (Razor 1.5px Silver Edge) */}
         <div
@@ -210,11 +210,11 @@ export function Team() {
       {/* Top Specular Divider Beam & Ambient Light Reflection */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/85 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/90 to-transparent"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-4/5 h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.25)_0%,transparent_75%)] blur-2xl"
+        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-4/5 h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.40)_0%,rgba(255,255,255,0.15)_45%,transparent_75%)] blur-2xl"
       />
 
       {/* Studio Ambient Reflection Pool */}
@@ -225,7 +225,13 @@ export function Team() {
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-2xl mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-2xl mb-16"
+        >
           <span className={`${inter.className} text-[11px] font-mono uppercase tracking-widest text-zinc-300 font-semibold`}>
             Engineering Core
           </span>
@@ -235,7 +241,7 @@ export function Team() {
           <p className={`${inter.className} mt-4 text-base sm:text-lg text-zinc-200 font-normal leading-relaxed`}>
             A focused collective of senior engineers and designers taking direct responsibility for your digital product.
           </p>
-        </div>
+        </motion.div>
 
         {/* Responsive Grid: 1 col on mobile, 2 cols on tablet, 4 cols on desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">

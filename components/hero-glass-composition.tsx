@@ -40,7 +40,7 @@ export function HeroGlassComposition() {
     <motion.div
       initial={{ opacity: 0, y: 22 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.3 }}
+      transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
       className="relative w-full max-w-4xl mx-auto mt-14 md:mt-16"
     >
       {/* Ambient Studio Lighting Pool behind the Main Panel */}
@@ -50,7 +50,7 @@ export function HeroGlassComposition() {
       />
 
       {/* Large Visible Charcoal-Obsidian Glossy Glass Panel */}
-      <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.22] bg-gradient-to-b from-[#242632]/92 via-[#16171e]/94 to-[#0b0c10]/98 p-5 sm:p-7 backdrop-blur-3xl shadow-[0_35px_90px_rgba(0,0,0,0.98),inset_0_1px_1px_rgba(255,255,255,0.48),inset_0_-1px_1px_rgba(0,0,0,0.7)] transition-all duration-300 hover:border-white/40">
+      <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.22] bg-gradient-to-b from-[#262833]/92 via-[#181920]/94 to-[#0c0d11]/98 p-5 sm:p-7 backdrop-blur-3xl shadow-[0_35px_90px_rgba(0,0,0,0.98),inset_0_1px_1px_rgba(255,255,255,0.45),inset_0_-1px_1px_rgba(0,0,0,0.7)] transition-all duration-300 hover:border-white/40">
         {/* Precision Specular Top Reflection Line (Razor 1.5px Silver Edge) */}
         <div
           aria-hidden="true"
@@ -104,12 +104,12 @@ export function HeroGlassComposition() {
             return (
               <div
                 key={cap.title}
-                className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/18 bg-gradient-to-b from-[#2e303d]/90 via-[#20212a]/92 to-[#14151a]/96 p-4 flex flex-col justify-between transition-all duration-300 hover:border-white/40 hover:from-[#353847] hover:via-[#262833] hover:to-[#181920] hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(255,255,255,0.4)] group/tile"
+                className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/[0.22] bg-gradient-to-b from-[#262833]/90 via-[#181920]/92 to-[#0c0d11]/96 p-4 flex flex-col justify-between transition-all duration-300 hover:border-white/[0.45] hover:from-[#2e303d] hover:via-[#1e2028] hover:to-[#0f1015] hover:-translate-y-1 active:scale-[0.98] hover:shadow-[0_18px_40px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(255,255,255,0.45),inset_0_-1px_1px_rgba(0,0,0,0.7)] group/tile"
               >
                 {/* Mini Top Specular Highlight */}
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/80 to-transparent transition-opacity group-hover/tile:via-white"
+                  className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/90 to-transparent transition-opacity group-hover/tile:via-white"
                 />
 
                 {/* Mini Top Soft White Reflection */}
@@ -150,7 +150,7 @@ export function HeroGlassComposition() {
             {technologies.map((tech) => (
               <span
                 key={tech}
-                className="rounded-full border border-white/20 bg-white/[0.07] px-3 py-1 text-[10px] font-mono font-semibold text-white backdrop-blur-md transition-colors hover:border-white/40 hover:bg-white/[0.14]"
+                className="rounded-full border border-white/20 bg-gradient-to-b from-[#262833]/80 to-[#121318]/90 px-3 py-1 text-[10px] font-mono font-semibold text-white backdrop-blur-md transition-all hover:border-white/40 hover:from-[#2e303d] hover:to-[#181920] shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
               >
                 {tech}
               </span>
