@@ -2,206 +2,72 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Laptop, Sparkles, TrendingUp } from "lucide-react";
+import { FolderGit2, Mail } from "lucide-react";
 import { GlassCard } from "./ui/glass-card";
 
-interface PortfolioProps {
-  onOpenDemo: () => void;
-}
-
-export function Portfolio({ onOpenDemo }: PortfolioProps) {
-  const projects = [
-    {
-      id: "01",
-      title: "Apex Capital",
-      category: "FinTech Platform",
-      url: "apexcapital.app",
-      description:
-        "High-performance asset monitoring platform engineered with Next.js, real-time data feeds, and an obsidian design system.",
-      metrics: "99.8 Lighthouse • < 0.6s FCP • 42% Conversion Lift",
-      tags: ["Next.js", "TypeScript", "Tailwind CSS", "WebSockets"],
-    },
-    {
-      id: "02",
-      title: "Solace Audio",
-      category: "E-Commerce Experience",
-      url: "solace-audio.io",
-      description:
-        "Luxury direct-to-consumer storefront featuring seamless catalog filtering, custom checkout flows, and 3D visualizers.",
-      metrics: "3.2x Checkout Velocity • 100% Mobile Optimized • Zero CLS",
-      tags: ["Next.js", "Shopify API", "Stripe", "Framer Motion"],
-    },
-    {
-      id: "03",
-      title: "Nexus Cloud",
-      category: "Developer SaaS Hub",
-      url: "nexuscloud.dev",
-      description:
-        "Technical documentation engine and marketing suite built for developer tool adoption with zero-latency full-text search.",
-      metrics: "10k+ Daily Readers • Instant Navigation • Full Dark Mode",
-      tags: ["Next.js App Router", "MDX", "Tailwind", "Search"],
-    },
-  ];
-
+export function Portfolio() {
   return (
-    <section id="work" className="relative py-28 md:py-36 overflow-hidden">
-      {/* Top Specular Divider Beam & Ambient Light Reflection */}
+    <section id="work" className="relative py-24 md:py-32 overflow-hidden">
+      {/* Top Specular Divider Beam */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/85 to-transparent"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-4/5 h-44 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.25)_0%,transparent_75%)] blur-2xl"
-      />
-
-      {/* Studio Ambient Reflection Pool */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/3 left-1/3 w-[950px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_0%,transparent_75%)] blur-3xl"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/90 to-transparent"
       />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mb-16"
+        >
           <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-300 font-semibold">
             Selected Work
           </span>
           <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            Digital Platforms Built to Lead Their Markets.
+            Case Studies & Project References
           </h2>
           <p className="mt-4 text-base sm:text-lg text-zinc-200 leading-relaxed font-normal">
-            A cross-section of bespoke web applications, high-converting e-commerce storefronts, and modern
-            digital interfaces built for discerning clients.
+            A review of recent custom web builds, design systems, and technical architectures.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 3 Project Showcases in Glossy Obsidian Panels */}
-        <div className="space-y-8 mb-16">
-          {projects.map((proj, index) => (
-            <motion.div
-              key={proj.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <GlassCard className="p-6 sm:p-9 group">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                  {/* Left Column: Project Details */}
-                  <div className="lg:col-span-7 flex flex-col justify-between">
-                    <div>
-                      {/* Category & ID */}
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="text-xs font-mono font-bold text-white/60">
-                          {proj.id}
-                        </span>
-                        <span className="h-1 w-1 rounded-full bg-white/40" />
-                        <span className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-300">
-                          {proj.category}
-                        </span>
-                      </div>
+        {/* Honest Portfolio Status Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-30px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-2xl mx-auto"
+        >
+          <GlassCard className="p-8 sm:p-10 text-center flex flex-col items-center justify-center group">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.22] bg-gradient-to-b from-[#262833]/90 to-[#121318]/95 text-white mb-5 transition-transform duration-300 group-hover:scale-105 shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
+              <FolderGit2 className="h-6 w-6 text-zinc-200" />
+            </div>
 
-                      {/* Project Title */}
-                      <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                        {proj.title}
-                      </h3>
+            <h3 className="text-xl font-bold text-white tracking-tight">
+              Case Studies in Preparation
+            </h3>
 
-                      {/* Description */}
-                      <p className="mt-3 text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
-                        {proj.description}
-                      </p>
+            <p className="mt-3 text-sm text-zinc-300 leading-relaxed max-w-md mx-auto font-normal">
+              We are currently documenting recent client builds, architecture breakdowns,
+              and design deliverables for public display. If you would like to review specific
+              work samples relevant to your project, reach out directly.
+            </p>
 
-                      {/* Impact Metrics Pill */}
-                      <div className="mt-5 inline-flex items-center gap-2 rounded-xl border border-white/20 bg-gradient-to-b from-[#242632] to-[#121318] px-4 py-2 text-xs font-mono text-zinc-200 shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
-                        <TrendingUp className="h-4 w-4 text-emerald-400" />
-                        <span>{proj.metrics}</span>
-                      </div>
-                    </div>
-
-                    {/* Tech Stack Pills & Action Link */}
-                    <div className="mt-8 pt-5 border-t border-white/[0.14] flex flex-wrap items-center justify-between gap-4">
-                      <div className="flex flex-wrap gap-1.5">
-                        {proj.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-full border border-white/20 bg-white/[0.07] px-3 py-1 text-[10px] font-mono font-medium text-white"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      <button
-                        onClick={onOpenDemo}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-zinc-200 transition-colors cursor-pointer group-hover:translate-x-1"
-                      >
-                        <span>Request Full Case Study</span>
-                        <ArrowUpRight className="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Right Column: Glossy Digital Screen Mockup */}
-                  <div className="lg:col-span-5">
-                    <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/25 bg-gradient-to-b from-[#2a2c38] via-[#1a1b22] to-[#0e0f14] p-4 shadow-[0_25px_50px_rgba(0,0,0,0.95),inset_0_1px_1px_rgba(255,255,255,0.45)]">
-                      {/* Screen Specular Edge */}
-                      <div
-                        aria-hidden="true"
-                        className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/85 to-transparent"
-                      />
-                      {/* Screen Top Reflection */}
-                      <div
-                        aria-hidden="true"
-                        className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-4/5 h-20 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.30)_0%,transparent_75%)] blur-md"
-                      />
-                      {/* Screen Header Bar */}
-                      <div className="flex items-center justify-between pb-3 border-b border-white/[0.14]">
-                        <div className="flex items-center gap-1.5">
-                          <div className="h-2 w-2 rounded-full bg-white/50" />
-                          <div className="h-2 w-2 rounded-full bg-white/20" />
-                          <div className="h-2 w-2 rounded-full bg-white/20" />
-                          <span className="ml-2 text-[10px] font-mono text-zinc-200 font-medium">
-                            {proj.url}
-                          </span>
-                        </div>
-                        <Laptop className="h-3.5 w-3.5 text-zinc-400" />
-                      </div>
-
-                      {/* Screen Body Simulation */}
-                      <div className="mt-4 p-4 rounded-lg bg-[#06070a] border border-white/12 space-y-3">
-                        <div className="flex items-center justify-between">
-                          <div className="h-3 w-20 rounded bg-white/25" />
-                          <div className="h-3 w-12 rounded-full bg-emerald-400/35" />
-                        </div>
-                        <div className="h-8 w-3/4 rounded bg-white/20" />
-                        <div className="grid grid-cols-3 gap-2 pt-2">
-                          <div className="h-12 rounded bg-white/12" />
-                          <div className="h-12 rounded bg-white/12" />
-                          <div className="h-12 rounded bg-white/12" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </GlassCard>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Inquire for Custom Work */}
-        <div className="text-center pt-4">
-          <p className="text-sm text-zinc-300 font-normal mb-4">
-            Need a similar bespoke platform engineered for your business?
-          </p>
-          <button
-            onClick={onOpenDemo}
-            className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-xs sm:text-sm font-bold text-black transition-all hover:bg-zinc-100 hover:shadow-[0_0_30px_rgba(255,255,255,0.45)] cursor-pointer shadow-[0_4px_20px_rgba(255,255,255,0.25)]"
-          >
-            <Sparkles className="h-4 w-4" />
-            <span>Discuss Custom Build</span>
-          </button>
-        </div>
+            <div className="mt-8">
+              <a
+                href="mailto:craftedmindsinfo@gmail.com"
+                className="inline-flex items-center gap-2 rounded-full border border-white/[0.22] bg-gradient-to-b from-[#262833] via-[#181920] to-[#0c0d11] px-6 py-3 text-xs sm:text-sm font-semibold text-white hover:border-white/[0.45] hover:from-[#2e303d] hover:via-[#1e2028] hover:to-[#0f1015] active:scale-[0.97] transition-all shadow-[0_4px_16px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.30)]"
+              >
+                <Mail className="h-4 w-4 text-zinc-300" />
+                <span>Request Project Samples via Email</span>
+              </a>
+            </div>
+          </GlassCard>
+        </motion.div>
       </div>
     </section>
   );

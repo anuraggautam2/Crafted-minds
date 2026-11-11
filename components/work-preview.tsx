@@ -10,7 +10,7 @@ interface WorkPreviewProps {
 
 export function WorkPreview({ onOpenDemo }: WorkPreviewProps) {
   return (
-    <section id="work" className="relative py-20 md:py-28 overflow-hidden border-t border-white/[0.12] bg-[#000000]">
+    <section id="work" className="relative py-20 md:py-28 overflow-hidden border-t border-white/[0.12]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
@@ -43,7 +43,7 @@ export function WorkPreview({ onOpenDemo }: WorkPreviewProps) {
             <div className="mt-6">
               <button
                 onClick={onOpenDemo}
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#24242a] px-5 py-2.5 text-xs font-semibold text-white hover:text-white hover:bg-[#2c2c34] hover:border-white/40 transition-all cursor-pointer shadow-sm"
+                className="inline-flex items-center gap-2 rounded-full border border-white/[0.22] bg-gradient-to-b from-[#262833] via-[#181920] to-[#0c0d11] px-5 py-2.5 text-xs font-semibold text-white hover:text-white hover:from-[#2e303d] hover:via-[#1e2028] hover:to-[#0f1015] hover:border-white/[0.45] transition-all cursor-pointer shadow-[0_4px_16px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.30)]"
               >
                 <span>Request Project Samples</span>
                 <ArrowRight className="h-3.5 w-3.5" />
